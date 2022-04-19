@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MaticAlpha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./styles/img/favicon.png" type="image/x-icon" />
+    <link rel='stylesheet' href='./styles/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='./styles/css/fontawesome/css/all.min.css'>
+    <link rel='stylesheet' type='text/css' href='./styles/css/main.css'>
+
+
+<style>
+    /*!
+  * ======================================================================
+  * ======================================================================
+  */
+  
+  
+@import url("icons/iconfont.css");
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam:ital,wght@0,300;0,500;0&display=swap');
+.connect-btnn {
+    max-width: 40px;
+    overflow:hidden;
+}
+.connect-btnn:hover {
+    max-width: 300px;
+    overflow:hidden;
+}
+a, a > span {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  line-height: 24px;
+}
+a:before, a:after, a > span:before, a > span:after {
+  content: '';
+  position: absolute;
+  transition: transform .5s ease;
+}
+
+.hover-1 {
+  padding-top: 10px;
+}
+.hover-1:before {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: #492059;
+  transform: scaleX(0);
+}
+.hover-1:hover:before {
+  transform: scaleX(1);
+}
+.hover-2 {
+  padding: 10px;
+}
+.hover-2:before, .hover-2:after {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-style: solid;
+  border-color: orange;
+}
+.hover-2:before {
+  border-width: 2px 0 2px 0;
+  transform: scaleX(0);
+}
+.hover-2:after {
+  border-width: 0 2px 0 2px;
+  transform: scaleY(0);
+}
+.hover-2:hover:before, .hover-2:hover:after {
+  transform: scale(1, 1);
+}
+
+
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+      bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  z-index: 99999;
+    background-color: #222;
+}
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #9370DB;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #BA55D3;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #FF00FF;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+@-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+#toaste {
+    visibility: hidden;
+    max-width: 500px;
+    height: 50px;
+    max-height: 100px;
+    /*margin-left: -125px;*/
+    margin: auto;
+    background-color: #24d135;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+
+    overflow: hidden;
+    position: fixed;
+    z-index: 1;
+    left: 0;right:0;
+    bottom: 30px;
+    font-size: 17px;
+    white-space: nowrap;
+}
+
+#toaste #imgg{ 
+	width: 50px;
+	height: 50px;
+    
+    float: left;
+    
+    padding-top: 16px;
+    padding-bottom: 16px;
+    
+    box-sizing: border-box;
+
+    
+    background-color: #111;
+    color: #fff;
+}
+.green {
+    background-color: #24d135;
+    color: #fff;
+	
+}
+.red {
+    background-color: red;
+    color: #fff;
+	
+}
+.yellow {
+    background-color: orange;
+    color: #fff;
+	
+}
+#toaste #desc{
+    color: #fff;
+    padding: 16px;
+    overflow: hidden;
+	white-space: nowrap;
+}
+
+#toaste.sshow {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes expand {
+    from {min-width: 50px} 
+    to {min-width: 350px}
+}
+
+@keyframes expand {
+    from {min-width: 50px}
+    to {min-width: 350px}
+}
+@-webkit-keyframes stay {
+    from {min-width: 350px} 
+    to {min-width: 350px}
+}
+
+@keyframes stay {
+    from {min-width: 350px}
+    to {min-width: 350px}
+}
+@-webkit-keyframes shrink {
+    from {min-width: 350px;} 
+    to {min-width: 50px;}
+}
+
+@keyframes shrink {
+    from {min-width: 350px;} 
+    to {min-width: 50px;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 60px; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 60px; opacity: 0;}
+}
+
+
+        .jhjj:hover {
+            background: #808080 !important;
+        }
+        
+        body.mrs-fill canvas {
+            height: 100%;
+            left: 0;
+            min-height: 640px;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background-attachment: fixed;
+            position: fixed;
+        }
+        
+        .blur {
+            -webkit-backdrop-filter: blur(3.7px);
+        }
+        .blurz {
+            -webkit-backdrop-filter: blur(3.7px);
+            backdrop-filter: blur(3.7px);
+    
+        }
+        .blurzz {
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+        }
+        .black {
+            color: black;
+        }
+        
+        .blue {
+            color: blue;
+        }
+        
+        .white {
+            color: white;
+        }
+        
+        .launch-button:hover {
+            cursor: pointer;
+        }
+</style>
+    <script src="./styles/js/jquery-3.4.1.min.js"></script>
+    <script src="./styles/js/bootstrap.bundle.min.js"></script>
+    <script src="./styles/js/owl.carousel.min.js"></script>
+    <script src="./styles/js/tilt.jquery.min.js"></script>
+    <script src="./styles/js/clipboard.min.js"></script>
+
+
+
+</head>
+
+
+<body style="background: black; color: white;" class="mrs-fill">
+<div id="preloader">
+  <div id="loader"></div>
+</div>
+    <canvas></canvas>
+    <canvas></canvas>
+
+
+<script>
+		$(window).on('load', function() {
+            $('#preloader').delay(350).fadeOut('slow'); 
+            $('body').delay(550).css({'overflow':'visible'});
+		})
+		
+    if(document.location.href.indexOf('force') < 0) { 
+        
+        document.location.href = '/countdown';
+    }
+</script>
+    <header class="darkHeadertx fixed-top smalexx" id="header-main-menu">
+        <nav class="navbar navbar-expand-lg navbar-light main-nav">
+            <div class="container-fluid">
+
+                <a href="/" class="navbar-brand">
+
+                    <img src="styles/img/logo-08.png" alt="Cryptobrit Logo" width="180px" height="auto">
+
+                </a>
+
+                <button class="navbar-toggler collapsed" data-toggle="collapse" data-target="#MainNav" style="color-white; border-color: white;">
+                    <span class="navbar-toggler-icon" style="color:white !important;"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="MainNav">
+                    <ul class="navbar-nav mr-auto mt-sms-3">
+                        <li class="nav-item">
+                            <a class="nav-link text-center hover-2" style="color: white;" href="/">Documentation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  text-center hover-2" href="?a=cust&amp;page=aboutus" style="color: white;">Audit</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link  text-center hover-2" href="?a=cust&amp;page=affiliate" style="color: white;">Youtube Contest</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  text-center hover-2" href="?a=cust&amp;page=faq" style="color: white;">Contract</a>
+                        </li>
+                       
+                        
+                    </ul>
+
+
+                    <ul class="navbar-nav navbar-nav--right ml-auto d-flex">
+                        <li class="nav-item right-navi d-flex">
+                            <button class="register btn connect-btn" onclick="walletc();" style="background: #904dbd; color: white;"> <i class="fas fa-link mr-2 connect-wallet"></i>  CONNECT WALLET</button>
+
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+
+    <main>
+<div id="toaste"><div id="imgg" style="background-size: 25px 25px; background-repeat: no-repeat; background-position: center;"></div><div id="desc"><div style="color: white;" id="response-text"><span id="reponse-msg"></span> </div></div></div>
+        <section id="k" style="background: none;margin-bottom:0rem;">
+
+            <div class="container" style="margin-bottom:0rem;">
+
+                <div class="row align-items-center" style="margin-bottom:0rem;">
+                    <div class="col-lg-6 col-md-6 blurzz" style="margin-top: 20px;">
+                     
+
+
+<h3 class="pb-3" style="color: white;">Earn Matic Everyday With <b>MaticAlpha</b></h3>
+
+                        <p class="pb-7 pt-6" style="color: white; font-size: 15px;">
+                            <h4 style="color:white;">The contract offers 10% to 112% net interest, if capitals are excluded, within a period of 5 to 35 days</h4>
+                            <div><span style="background: orange; color: white; font-size: 19px;font-weight: 600;">IMPORTANT NOTES</span></div>
+                            <ol style="color: white;"><li>
+                             Deposits amount ranges from 10 Matic and above.
+                            </li>
+                            <li>
+                                Distintive and additional reward is awarded specially to holders (Hold Reward) to strengthen the contract as well as increase its life span.
+                            </li>
+                            <li>
+                                Given that participants don't withdraw their plan reward prematurely, they will get hold reward. Hold-reward varies with staking plans and are withrawable anytime.
+                            </li>
+                            <li>
+                                You get your hold reward, wether or not you withdraw it prematurely.
+                            </li>
+                            <li>
+                               Participants can stake/invest on upto 5 plans simultaneously.
+                            </li>
+                            
+                            <li>
+                               You can withdraw all your balance collectively or separately.
+                            </li>
+                            <li>
+                               You can be hold-bonus active or innactive for one, more than one or all of your active stake/investment plans.
+                             
+                            </li>
+                            <li>
+                                A reinvestment bonus is instantly paid to your address when you reinvest. Reinvestment bonus varies with staking plans.
+                            </li>
+                            </ol>
+                            <center><h4 class="pb-3" style="color: white;">SEE DOCUMENTATION FOR FULL DETAILS</h4></center>
+                            <div align="center" style="margin-right: 10px;">
+                                <i class="icon icon-star color-yellow" style="color:yellow;"></i>
+                                <i class="icon icon-star color-yellow" style="color:yellow;"></i>
+                                <i class="icon icon-star color-yellow" style="color:yellow;"></i>
+                                <i class="icon icon-star color-yellow" style="color:yellow;"></i>
+                                <i class="icon icon-star color-yellow" style="color:yellow;"></i>
+                            </div>
+
+                            <center>
+                                <a class="btn" href="?a=cust&amp;page=invest" role="button"><span style="padding: 0px;">CONTRACT</span></a>
+
+                                <a class="btn btn-outline" href="?a=deposit" role="button" style="color: white; border-color: white;"><span  style="color: white; padding: 0px;"><i class="fas fa-file-alt" style="color: white;"></i> DOCUMENTATION</span></a>
+
+                                <a class="btn" href="?a=cust&amp;page=invest" role="button" style="padding: 0px;"><span>AUDIT</span></a>
+
+                            </center>
+
+
+                    </div>
+                    <div class="col-lg-6 col-md-6"><img src="styles/img/ban.svg" width="95%" height="auto" />
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="hero" class="about-us-page" style="background: none; padding:0;">
+            <div class="container">
+
+                <div class="row align-items-center justify-content-center" style="min-height:32vh; margin-top:0px; padding-top: 0px;">
+
+
+
+                    <div class="col-md-8 col-lg-10 text-center d-flex pb-lg-5 ">
+                        <div class="row flex-fill">
+                            <div class="col-lg-3 col-6 ">
+                                <div class="site-statsx d-flex flex-column justify-content-lg-center align-items-lg-center blurz">
+                                    <p class="d-flex align-items-center" style="color: white;"><b><i class="icon icon-star3"></i> ACTIVE DAYS</b></p>
+                                    <b>0 <span>day</span></b>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 ">
+                                <div class="site-statsx d-flex flex-column justify-content-lg-center align-items-lg-center blurz">
+                                    <p class="d-flex align-items-center" style="color: white;"><b><i class="icon icon-pricing-table5"></i> ACTIVE USERS</b></p>
+                                    <b><span id="user-count">0</span></b>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mt-3 mt-lg-0 col-6 ">
+                                <div class="site-statsx d-flex flex-column justify-content-lg-center align-items-lg-center blurz">
+                                    <p class="d-flex align-items-center" style="color: white;"><b><i class="icon icon-user"></i> REF. REWARD</b></p>
+                                    <b> <span id="ref-bonus"></span> <small style="font-size: 10px; color: ;">MATIC</small></b>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 mt-3 mt-lg-0 col-6 ">
+                                <div class="site-statsx d-flex flex-column justify-content-lg-center align-items-lg-center blurz">
+                                    <p class="d-flex align-items-center" style="color: white;"><b><i class="icon icon-chart2"></i> TOTAL STAKE</b></p>
+                                    <b> <span id="total-staked"></span> <small style="font-size: 10px; color: ;">MATIC</small></b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="row align-items-center justify-content-center">
+
+
+
+                    <div class="col-md-12 d-flex all-center pt-5">
+                        <div class="site-plan d-flex flex-column blur" style="background: rgba(255, 201, 51,0.8)">
+
+
+                            <div class="row ">
+
+                                <div class="col-lg-5 d-flex flex-column blur" style="background: #ffad33;">
+                                    <div class="bo-box all-center" style="background: rgb(0,0,0); background: linear-gradient(0deg, rgba(0,0,0,1) 64%, rgba(116,82,9,0.5) 100%); ">
+                                        <div class="row">
+
+                                            <div class="col-5 d-flex flex-column all-center">
+                                                <i class="icon icon-star3"></i>
+                                                <h2 style="color: white;" id="inpvar4">6.03%</h2>
+                                                <p>Daily Reward</p>
+                                            </div>
+
+                                            <div class="col-2 d-flex flex-column all-center">
+                                                <small class="equip" style="color: white; font-size: 17px;"><b>&#8781;</b></small>
+                                            </div>
+
+                                            <div class="col-5 d-flex flex-column all-center">
+                                                <i class="icon icon-chart"></i>
+                                                <h2 style="color: white;" id="inpvar2">212%</h2>
+                                                <p>Total Return</p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="row min-dep">
+
+                                            <div class="col-12 pb-2">
+                                                <p class="white">Minimum Deposit Amount: 10 MATIC</p>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 d-flex flex-column pt-4 pb-4 justify-content-center dsewq" style="">
+                                    <div class="d-flex align-items-center mb-4"><i class="icon icon-organize blue mr-2"></i>
+                                        <h3 class="mb-0 black">Plan Alpha</h3>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <img src="styles/img/xxx.png" class="icon icon-ads float-ix" width="20px" height="20px" />
+                                        <input class="float-ix btn stake-btn-4" id="plan-4-btn" style="right:2px;height:36px;line-height:34px;top:2px;font-size:17px;padding:0px 0px;border-radius:10px;border: 0.8px solid #fca103;color:white;letter-spacing: 0.2px;font-weight:700; background: none; padding-left: 10px; padding-right:10px;"
+                                            onclick="plan(4);" type="submit" value="Stake Now">
+                                        <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" id="plan-4" placeholder="Amount (MATIC)" ng-model="user.company" style="background: black;border-radius:10px;border: 1px solid #fca103; color: white; color: white;">
+                                        <label class="notice white"><span style="color:white;">* </span> Calculator work on MATIC</label>
+                                    </div>
+
+                                    <div class="row resutl pt-1">
+
+                                        <div class="col-6 col-md-3 d-flex flex-column ">
+                                            <h4 class="black">35 Days</h4>
+                                            <p class="blue">Duration</p>
+                                        </div>
+                                        <div class="col-6 col-md-3 d-flex flex-column ">
+                                            <h4 id=""><span class="black plan-4-p"></span> <span class="plan-4-info"><span class="black plan-4-p-val">3.93</span> <small style="color: blue;">%</small></span>
+                                            </h4>
+                                            <p class="blue">Daily Plan Reward</p>
+                                        </div>
+                                        <div class="col-6 col-md-3 mt-3 mt-md-0 d-flex flex-column ">
+                                            <h4 id=""><span class="black plan-4-h"></span><span class="plan-4-info"><span class="black plan-4-h-val">2.14</span> <small style="color: blue;">%</small></span>
+                                            </h4>
+                                            <p class="blue">Daily Hold Reward</p>
+                                        </div>
+                                        <div class="col-6 col-md-3 mt-3 mt-md-0 d-flex flex-column ">
+                                            <h4 id="inpvar4"><span class="black plan-4-t"></span><span class="plan-4-info"><span class="black plan-4-t-val">212.54</span> <small style="color: blue;">%</small></span>
+                                            </h4>
+                                            <p class="blue">Total Return</p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+                <div class="row align-items-center justify-content-center">
+
+
+
+                    <div class="col-md-12 d-flex all-center pt-5">
+                        <div class="site-plan d-flex flex-column blur" style="background: rgba(255, 201, 51,0.8)">
+
+
+                            <div class="row ">
+
+                                <div class="col-lg-5 d-flex flex-column pb-4" style="background: #ffad33;">
+                                    <div class="bo-box all-center" style="background: rgb(0,0,0); background: linear-gradient(0deg, rgba(0,0,0,1) 64%, rgba(116,82,9,0.5) 100%); ">
+                                        <div class="row">
+
+                                            <div class="col-5 d-flex flex-column all-center">
+                                                <i class="icon icon-star3"></i>
+                                                <h2 style="color: white;" id="inpvar4">6.43%</h2>
+                                                <p>Daily Reward</p>
+                                            </div>
+
+                                            <div class="col-2 d-flex flex-column all-center">
+                                                <small class="equip" style="color: white; font-size: 17px;"><b>&#8781;</b></small>
+                                            </div>
+
+                                            <div class="col-5 d-flex flex-column all-center">
+                                                <i class="icon icon-chart"></i>
+                                                <h2 style="color: white;" id="inpvar2">180%</h2>
+                                                <p>Total Return</p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="row min-dep">
+
+                                            <div class="col-12 pb-2">
+                                                <p class="white">Minimum Deposit Amount: 10 MATIC</p>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 d-flex flex-column pt-4 pb-4 justify-content-center dsewq" style="">
+                                    <div class="d-flex align-items-center mb-4"><i class="icon icon-organize color-yellow mr-2" style="color: blue;"></i>
+                                        <h3 class="mb-0 black">Plan Beta</h3>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <img src="styles/img/xxx.png" class="icon icon-ads float-ix" width="20px" height="20px" />
+                                        <input class="float-ix btn stake-btn-3" id="plan-3-btn" style="right:2px;height:36px;line-height:34px;top:2px;font-size:17px;padding:0px 0px;border-radius:10px;border: 0.8px solid #fca103;color:white;letter-spacing: 0.2px;font-weight:700; background: none; padding-left: 10px; padding-right:10px;"
+                                            onclick="plan(3);" type="submit" value="Stake Now">
+                                        <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" id="plan-3" placeholder="Amount (MATIC)" ng-model="user.company" style="background: black;border-radius:10px;border: 1px solid #fca103; color: white;">
+                                        <label class="notice white"><span style="color:white;">* </span> Calculator work on MATIC</label>
+                                    </div>
+
+                                    <div class="row resutl pt-1">
+
+                                        <div class="col-6 col-md-3 d-flex flex-column ">
+                                            <h4 class="black">28 Days</h4>
+                                            <p class="blue">Duration</p>
+                                        </div>
+                                        <div class="col-6 col-md-3 d-flex flex-column ">
+                                            <h4 id=""><span class="black plan-3-p"></span> <span class="plan-3-info"><span class="black plan-3-p-val">4.64</span> <small style="color: blue;">%</small></span>
+                                            </h4>
+                                            <p class="blue">Daily Plan Reward</p>
+                                        </div>
+                                        <div class="col-6 col-md-3 mt-3 mt-md-0 d-flex flex-column ">
+                                            <h4 id=""><span class="black plan-3-h"></span><span class="plan-3-info"><span class="black plan-3-h-val">1.79</span> <small style="color: blue;">%</small></span>
+                                            </h4>
+                                            <p class="blue">Daily Hold Reward</p>
+                                        </div>
+                                        <div class="col-6 col-md-3 mt-3 mt-md-0 d-flex flex-column ">
+                                            <h4 id="inpvar4"><span class="black plan-3-t"></span><span class="plan-3-info"><span class="black plan-3-t-val">180.04</span> <small style="color: blue;">%</small></span>
+                                            </h4>
+                                            <p class="blue">Total Return</p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+                <div class="row align-items-center justify-content-center">
+
+
+
+                    <div class="col-md-12 d-flex all-center pt-5">
+                        <div class="site-plan d-flex flex-column blur" style="background: rgba(255, 201, 51,0.8)">
+
+
+                            <div class="row ">
+
+                                <div class="col-lg-5 d-flex flex-column pb-4" style="background: #ffad33;">
+                                    <div class="bo-box all-center" style="background: rgb(0,0,0); background: linear-gradient(0deg, rgba(0,0,0,1) 64%, rgba(116,82,9,0.5) 100%); ">
+                                        <div class="row">
+
+                                            <div class="col-5 d-flex flex-column all-center">
+                                                <i class="icon icon-star3"></i>
+                                                <h2 style="color: white;" id="inpvar4">7.26%</h2>
+                                                <p>Daily Reward</p>
+                                            </div>
+
+                                            <div class="col-2 d-flex flex-column all-center">
+                                                <small class="equip" style="color: white; font-size: 17px;"><b>&#8781;</b></small>
+                                            </div>
+
+                                            <div class="col-5 d-flex flex-column all-center">
+                                                <i class="icon icon-chart"></i>
+                                                <h2 style="color: white;" id="inpvar2">152%</h2>
+                                                <p>Total Return</p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="row min-dep">
+
+                                            <div class="col-12 pb-2">
+                                                <p class="white">Minimum Deposit Amount: 10 MATIC</p>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 d-flex flex-column pt-4 pb-4 justify-content-center dsewq" style="">
+                                    <div class="d-flex align-items-center mb-4"><i class="icon icon-organize color-yellow mr-2" style="color: blue;"></i>
+                                        <h3 class="mb-0 black">Plan Gamma</h3>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <img src="styles/img/xxx.png" class="icon icon-ads float-ix" width="20px" height="20px" />
+                                        <input class="float-ix btn stake-btn-2" id="plan-2-btn" style="right:2px;height:36px;line-height:34px;top:2px;font-size:17px;padding:0px 0px;border-radius:10px;border: 0.8px solid #fca103;color:white;letter-spacing: 0.2px;font-weight:700; background: none; padding-left: 10px; padding-right:10px;"
+                                            onclick="plan(2);" type="submit" value="Stake Now">
+                                        <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" id="plan-2" placeholder="Amount (MATIC)" ng-model="user.company" style="background: black;border-radius:10px;border: 1px solid #fca103; color: white; color: white;">
+                                        <label class="notice white"><span style="color:white;">* </span> Calculator work on MATIC</label>
+                                    </div>
+
+                                    <div class="row resutl pt-1">
+
+                                        <div class="col-6 col-md-3 d-flex flex-column ">
+                                            <h4 class="black">21 Days</h4>
+                                            <p class="blue">Duration</p>
+                                        </div>
+                                        <div class="col-6 col-md-3 d-flex flex-column ">
+                                            <h4 id=""><span class="black plan-2-p"></span> <span class="plan-2-info"><span class="black plan-2-p-val">5.83</span> <small style="color: blue;">%</small></span>
+                                            </h4>
+                                            <p class="blue">Daily Plan Reward</p>
+                                        </div>
+                                        <div class="col-6 col-md-3 mt-3 mt-md-0 d-flex flex-column ">
+                                            <h4 id=""><span class="black plan-2-h"></span><span class="plan-2-info"><span class="black plan-2-h-val">1.43</span> <small style="color: blue;">%</small></span>
+                                            </h4>
+                                            <p class="blue">Daily Hold Reward</p>
+                                        </div>
+                                        <div class="col-6 col-md-3 mt-3 mt-md-0 d-flex flex-column ">
+                                            <h4 id="inpvar4"><span class="black plan-2-t"></span><span class="plan-2-info"><span class="black plan-2-t-val">154</span> <small style="color: blue;">%</small></span>
+                                            </h4>
+                                            <p class="blue">Total Return</p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+                <div class="row align-items-center justify-content-center">
+
+
+
+                    <div class="col-md-12 d-flex all-center pt-5">
+                        <div class="site-plan d-flex flex-column blur" style="background: rgba(255, 201, 51,0.8)">
+
+
+                            <div class="row ">
+
+                                <div class="col-lg-5 d-flex flex-column pb-4" style="background: #ffad33;">
+                                    <div class="bo-box all-center" style="background: rgb(0,0,0); background: linear-gradient(0deg, rgba(0,0,0,1) 64%, rgba(116,82,9,0.5) 100%); ">
+                                        <div class="row">
+
+                                            <div class="col-5 d-flex flex-column all-center">
+                                                <i class="icon icon-star3"></i>
+                                                <h2 style="color: white;" id="inpvar4">9.28%</h2>
+                                                <p>Daily Reward</p>
+                                            </div>
+
+                                            <div class="col-2 d-flex flex-column all-center">
+                                                <small class="equip" style="color: white; font-size: 17px;"><b>&#8781;</b></small>
+                                            </div>
+
+                                            <div class="col-5 d-flex flex-column all-center">
+                                                <i class="icon icon-chart"></i>
+                                                <h2 style="color: white;" id="inpvar2">130%</h2>
+                                                <p>Total Return</p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="row min-dep">
+
+                                            <div class="col-12 pb-2">
+                                                <p class="white">Minimum Deposit Amount: 10 MATIC</p>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 d-flex flex-column pt-4 pb-4 justify-content-center dsewq" style="">
+                                    <div class="d-flex align-items-center mb-4"><i class="icon icon-organize color-yellow mr-2" style="color: blue;"></i>
+                                        <h3 class="mb-0 black">Plan Delta</h3>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <img src="styles/img/xxx.png" class="icon icon-ads float-ix" width="20px" height="20px" />
+                                        <input class="float-ix btn stake-btn-1" id="plan-1-btn" style="right:2px;height:36px;line-height:34px;top:2px;font-size:17px;padding:0px 0px;border-radius:10px;border: 0.8px solid #fca103;color:white;letter-spacing: 0.2px;font-weight:700; background: none; padding-left: 10px; padding-right:10px;"
+                                            onclick="plan(1);" type="submit" value="Stake Now">
+                                        <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" id="plan-1" placeholder="Amount (MATIC)" ng-model="user.company" style="background: black;border-radius:10px;border: 1px solid #fca103; color: white; color: white;">
+                                        <label class="notice white"><span style="color:white;">* </span> Calculator work on MATIC</label>
+                                    </div>
+
+                                    <div class="row resutl pt-1">
+
+                                        <div class="col-6 col-md-3 d-flex flex-column ">
+                                            <h4 class="black">14 Days</h4>
+                                            <p class="blue">Duration</p>
+                                        </div>
+                                        <div class="col-6 col-md-3 d-flex flex-column ">
+                                            <h4 id=""><span class="black plan-1-p"></span> <span class="plan-1-info"><span class="black plan-1-p-val">8.21</span> <small style="color: blue;">%</small></span>
+                                            </h4>
+                                            <p class="blue">Daily Plan Reward</p>
+                                        </div>
+                                        <div class="col-6 col-md-3 mt-3 mt-md-0 d-flex flex-column ">
+                                            <h4 id=""><span class="black plan-1-h"></span><span class="plan-1-info"><span class="black plan-1-h-val">1.07</span> <small style="color: blue;">%</small></span>
+                                            </h4>
+                                            <p class="blue">Daily Hold Reward</p>
+                                        </div>
+                                        <div class="col-6 col-md-3 mt-3 mt-md-0 d-flex flex-column ">
+                                            <h4 id="inpvar4"><span class="black plan-1-t"></span><span class="plan-1-info"><span class="black plan-1-t-val">130</span> <small style="color: blue;">%</small></span>
+                                            </h4>
+                                            <p class="blue">Total Return</p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+                <div class="row align-items-center justify-content-center">
+
+
+
+                    <div class="col-md-12 d-flex all-center pt-5">
+                        <div class="site-plan d-flex flex-column blur" style="background: rgba(255, 201, 51,0.8)">
+
+
+                            <div class="row ">
+
+                                <div class="col-lg-5 d-flex flex-column pb-4" style="background: #ffad33;">
+                                    <div class="bo-box all-center" style="background: rgb(0,0,0); background: linear-gradient(0deg, rgba(0,0,0,1) 64%, rgba(116,82,9,0.5) 100%); ">
+                                        <div class="row">
+
+                                            <div class="col-5 d-flex flex-column all-center">
+                                                <i class="icon icon-star3"></i>
+                                                <h2 style="color: white;" id="inpvar4">15.71%</h2>
+                                                <p>Daily Reward</p>
+                                            </div>
+
+                                            <div class="col-2 d-flex flex-column all-center">
+                                                <small class="equip" style="color: white; font-size: 17px;"><b>&#8781;</b></small>
+                                            </div>
+
+                                            <div class="col-5 d-flex flex-column all-center">
+                                                <i class="icon icon-chart"></i>
+                                                <h2 style="color: white;" id="inpvar2">110%</h2>
+                                                <p>Total Return</p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="row min-dep">
+
+                                            <div class="col-12 pb-2">
+                                                <p class="white">Minimum Deposit Amount: 10 MATIC</p>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-7 d-flex flex-column pt-4 pb-4 justify-content-center dsewq" style="">
+                                    <div class="d-flex align-items-center mb-4"><i class="icon icon-organize color-yellow mr-2" style="color: blue;"></i>
+                                        <h3 class="mb-0 black">Plan Omega</h3>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <img src="styles/img/xxx.png" class="icon icon-ads float-ix" width="20px" height="20px" />
+                                        <input class="float-ix btn stake-btn-0" id="plan-0-btn" style="right:2px;height:36px;line-height:34px;top:2px;font-size:17px;padding:0px 0px;border-radius:10px;border: 0.8px solid #fca103;color:white;letter-spacing: 0.2px;font-weight:700; background: none; padding-left: 10px; padding-right:10px;"
+                                            onclick="plan(0);" type="submit" value="Stake Now">
+                                        <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" id="plan-0" placeholder="Amount (MATIC)" ng-model="user.company" style="background: black;border-radius:10px;border: 1px solid #fca103; color: white; color: white;">
+                                        <label class="notice white"><span style="color:white;">* </span> Calculator work on MATIC</label>
+                                    </div>
+
+                                    <div class="row resutl pt-1">
+
+                                        <div class="col-6 col-md-3 d-flex flex-column ">
+                                            <h4 class="black">7 Days</h4>
+                                            <p class="blue">Duration</p>
+                                        </div>
+                                        <div class="col-6 col-md-3 d-flex flex-column ">
+                                            <h4 id=""><span class="black plan-0-p"></span> <span class="plan-0-info"><span class="black plan-0-p-val">15</span> <small style="color: blue;">%</small></span>
+                                            </h4>
+                                            <p class="blue">Daily Plan Reward</p>
+                                        </div>
+                                        <div class="col-6 col-md-3 mt-3 mt-md-0 d-flex flex-column ">
+                                            <h4 id=""><span class="black plan-0-h"></span><span class="plan-0-info"><span class="black plan-0-h-val">0.71</span> <small style="color: blue;">%</small></span>
+                                            </h4>
+                                            <p class="blue">Daily Hold Reward</p>
+                                        </div>
+                                        <div class="col-6 col-md-3 mt-3 mt-md-0 d-flex flex-column ">
+                                            <h4 id="inpvar4"><span class="black plan-0-t"></span><span class="plan-0-info"><span class="black plan-0-t-val">110</span> <small style="color: blue;">%</small></span>
+                                            </h4>
+                                            <p class="blue">Total Return</p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+        </section>
+
+        <section id="deposit-home" style="background: none;">
+
+            <div class="container" style="background: none;">
+                <div class="row align-items-center" id="dashboard" style="background: none;">
+
+
+
+                    <div id="" class=" col-lg-4 col-xl-4 d-flex flex-column align-items-stretch member-info" style="background: none;">
+                        <div class="ybox d-flex flex-column" style="flex:1;">
+                            <h6 class="d-flex align-items-center username p-3 pr-4 pl-4" style="color: black;">
+                                <i class="icon icon-chart2" style="color: black;"></i>
+                                <span style="flex:1; color: black;"> &nbsp; My Stats</span>
+                            </h6>
+
+                            <div class="d-flex flex-column align-items-stretch justify-content-center flex-fill">
+
+
+
+
+                                <div class="row m-0 mr-4 ml-4 mb-4 earningSmall">
+
+                                    <div class="col-sm">
+                                        <span style="font-size: 13px;"><b>Total Stake</b></span>
+                                        <p id="t-staked" style="color: black">0 </p>
+                                    </div>
+
+
+
+                                    <div class="col-sm">
+                                        <span style="font-size: 13px;"><b>Total Withdrawn</b></span>
+                                        <p id="t-withdrawn" style="color: black">0 </p>
+                                    </div>
+
+
+
+                                </div>
+
+
+                                <div class="m-3 mr-4 ml-4 accBalance d-flex align-items-center p-2 pt-3 pb-3" style="background: black;">
+
+                                    <div class="svg d-flex all-center p-2">
+                                        <img src="styles/img/xxx.png" class="icon icon-ads float-ix" width="23px" height="23px" />
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <p class="m-0 p-0 pBalance"><span style="color: white; font-weight: bold;">Avaliable MATIC for withdrawal</span></p>
+                                        <h5 class="m-0 p-0 mBalance" style="color: white;"><span id="p-bal">0</span> <small style="color: lightgray;"> Plan Balance</small></h5>
+                                        <h5 class="m-0 p-0 mBalance" style="color: white;"><span id="h-bal">0</span> <small style="color: lightgray;"> Hold Balance</small></h5>
+
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                <div class="row m-0 mr-4 ml-4 mb-4 earningSmall">
+
+                                    <div class="col-sm wrap" align="center" style="margin: 7px;"><button id="myBtn" class="js-open btn-open is-active btn" style="background: #904dbd; color: white;">WITHDRAW ALL PB</button></div>
+                                    <div class="col-sm" align="center" style="margin: 7px;"><button id="myBtn1" class="js-open btn-open is-active btn" style="background: #904dbd; color: white;">WITHDRAW ALL HB</button></div>
+                                    <div class="col-sm" align="center" style="margin: 7px;"> <button id="myBtn2" class="js-open btn-open is-active btn" style="background: #904dbd; color: white;">REINVEST ALL</button></div>
+
+
+
+                                </div>
+
+
+
+
+                                <div id="myModal" class="modal">
+
+                                    <!-- Modal content -->
+                                    <div class="modal-content ybox">
+                                        <div style="padding: 2px 16px;">
+                                            <span class="close">&times;</span>
+
+                                        </div>
+
+                                        <div class="row m-0 mr-4 ml-4 mb-4 earningSmall">
+
+                                          
+
+
+
+                                        </div>
+
+                                        <div class="m-3 mr-4 ml-4 accBalance d-flex align-items-center p-2 pt-3 pb-3" style="background: black;">
+
+
+                                            <div class="d-flex flex-column">
+                                                <p class="m-0 p-0 pBalance"><span style="color: white; font-weight: bold;">
+                                    
+                                        IMPORTANT NOTE: You are about to withdraw PLAN REWARD for all your plans. To withdraw plan reward individually for a particular plan, use the "My Stake" section.
+                                        <br><br>
+                                        
+                                        You automatically forfeit all your HOLD REWARD when you withdraw all your PLAN BALANCE prematurely.<br><br>
+                                        
+                                         <!-- put an if condition to check if expdate is greater than current date -->
+                                         </span>
+                                                </p>
+
+                                            </div>
+                                        </div>
+                                        <div class="row m-0 mr-4 ml-4 mb-4 earningSmall">
+
+                                            <div class="col-sm wrap" align="center" style="margin: 7px;"><button id="myBtn" class="js-open btn-open is-active btn withdrawall-1" onclick="withdrawall(1);" style="background: #904dbd; color: white;">WITHDRAW PB</button></div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+
+
+                                <div id="myModal1" class="modal">
+
+                                    <!-- Modal content -->
+                                    <div class="modal-content ybox">
+                                        <div style="padding: 2px 16px;">
+                                            <span class="close1">&times;</span>
+
+                                        </div>
+                                        <div class="row m-0 mr-4 ml-4 mb-4 earningSmall">
+
+
+                                        </div>
+                                        <div class="m-3 mr-4 ml-4 accBalance d-flex align-items-center p-2 pt-3 pb-3" style="background: black;">
+
+
+                                            <div class="d-flex flex-column">
+                                                <p class="m-0 p-0 pBalance"><span style="color: white; font-weight: bold;">
+                                    
+                                        IMPORTANT NOTE: HB (Hold Balance) can be withdrawn anytime, wether or not the plan has ended.<br><br>
+                                        
+                                         <!-- put an if condition to check if expdate is greater than current date -->
+                                         
+                                        Hold Reward are specially for holders', You will withdraw all your Hold Balance for all plan by clicking the button below.</span></p>
+
+                                            </div>
+                                        </div>
+                                        <div class="row m-0 mr-4 ml-4 mb-4 earningSmall">
+
+                                            <div class="col-sm wrap" align="center" style="margin: 7px;"><button id="myBtn" class="js-open btn-open is-active btn withdrawall-2" onclick="withdrawall(2);" style="background: #904dbd; color: white;">WITHDRAW HB</button></div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+
+                                <div id="myModal2" class="modal">
+
+                                    <!-- Modal content -->
+                                    <div class="modal-content ybox">
+                                        <div style="padding: 2px 16px;">
+                                            <span class="close2">&times;</span>
+
+                                        </div>
+
+                                        <div class="row m-0 mr-4 ml-4 mb-4 earningSmall">
+
+
+
+
+
+                                        </div>
+                                        <div class="m-3 mr-4 ml-4 accBalance d-flex align-items-center p-2 pt-3 pb-3" style="background: black;">
+
+                                            <div class="d-flex flex-column">
+                                                <p class="m-0 p-0 pBalance"><span style="color: white; font-weight: bold;">
+                                    
+                                        IMPORTANT NOTE: You can reinvest your total balance
+                                        
+                                        <br><br>
+                                        
+                                        Reinvestment attracts bonus, the bonus paid directly to your wallet, all plans have different reinvestment bonus
+                                        
+                                        <br><br>
+                                        
+                                         <!-- put an if condition to check if expdate is greater than current date -->
+                                         
+                                         Please select which plan you wish to reinvest to below and proceed</span></p>
+
+                                            </div>
+                                        </div>
+                                        <center>
+                                            <div class="select">
+                                                <select id="reinvest-sel">
+    <option value="0">Plan Alpha (Bonus 6.4%)</option>
+    <option value="1">Plan Beta (Bonus 5.3%)</option>
+    <option value="2">Plan Gamma (Bonus 4.2%)</option>
+    <option value="3">Plan Delta (Bonus 3.1%)</option>
+    <option value="4">Plan Omega (Bonus 2.6%)</option>
+  </select>
+                                            </div>
+                                        </center>
+                                        <div class="row m-0 mr-4 ml-4 mb-4 earningSmall">
+
+                                            <div class="col-sm wrap" align="center" style="margin: 7px;"><button id="myBtn" class="js-open btn-open is-active btn reinvest-all" onclick="reinvest();" style="background: #904dbd; color: white;">REINVEST ALL</button></div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-lg-4 pb-lg-5 pt-5 pr-xl-5 d-flex align-items-center flex-column justify-content-center" style="margin-bottom: 30px;">
+
+                        <div class=" d-flex align-items-stretch">
+                            <div class="ref-box common-ref d-flex flex-column text-center align-items-center">
+                                <h6 class="mb-0"><b>Standard Commission</b></h6>
+                                <div class="daf d-flex pb-4 pt-4 flex-column all-center">
+                                    <svg id="Layer_35" viewBox="0 0 64 64" height="72" width="72" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="m25.649 48.937-2.623 2.624c-.662.66-1.026 1.539-1.026 2.474v6.965h-4.351c.218-.456.351-.961.351-1.5 0-1.93-1.57-3.5-3.5-3.5h-8.5v2h8.5c.827 0 1.5.673 1.5 1.5s-.673 1.5-1.5 1.5h-3.5-6.5c-.827 0-1.5-.673-1.5-1.5v-3.5c0-4.963 4.038-9 9-9h3.488c3.149 0 6.199-.924 8.82-2.671l2.246-1.497-1.109-1.664-2.246 1.497c-.54.36-1.102.676-1.68.955.929-1.307 1.481-2.899 1.481-4.62 0-4.411-3.589-8-8-8s-8 3.589-8 8c0 2.498 1.152 4.73 2.951 6.199-5.088.963-8.951 5.436-8.951 10.801v3.5c0 1.93 1.57 3.5 3.5 3.5h6.5 3.5 9.5v-8.965c0-.4.156-.777.439-1.061l2.624-2.624zm-16.649-9.937c0-3.309 2.691-6 6-6s6 2.691 6 6-2.691 6-6 6-6-2.691-6-6z" fill="#353448" />
+                                            <path d="m58 27h-28c-2.757 0-5 2.243-5 5v16c0 2.757 2.243 5 5 5h9l1-5h8l1 5h9c2.757 0 5-2.243 5-5v-16c0-2.757-2.243-5-5-5z" fill="#f0bc5e" />
+                                            <g fill="#353448">
+                                                <path d="m54 5h-18c0-2.206-1.794-4-4-4h-18c-2.206 0-4 1.794-4 4v12c0 2.206 1.794 4 4 4h5.734l8.266 4.723v-4.723h4c0 2.206 1.794 4 4 4h3v4.723l8.266-4.723h6.734c2.206 0 4-1.794 4-4v-12c0-2.206-1.794-4-4-4zm-28 14v3.277l-5.734-3.277h-3.96c.89-2.373 3.154-4 5.777-4h1.835c2.622 0 4.887 1.627 5.777 4zm-3-6c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3zm9-4v10h-.202c-.724-2.635-2.692-4.682-5.198-5.547.863-.898 1.4-2.112 1.4-3.453 0-2.757-2.243-5-5-5s-5 2.243-5 5c0 1.341.537 2.555 1.4 3.453-2.507.865-4.474 2.911-5.198 5.547h-.202c-1.103 0-2-.897-2-2v-12c0-1.103.897-2 2-2h18c1.103 0 2 .897 2 2v.556c-1.19.694-2 1.97-2 3.444zm14.734 14-5.734 3.277v-3.277h-2.694c.89-2.373 3.154-4 5.777-4h1.835c2.622 0 4.887 1.627 5.777 4zm-1.734-6c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3-1.346 3-3 3zm11 4c0 1.103-.897 2-2 2h-.202c-.724-2.635-2.692-4.682-5.198-5.547.863-.898 1.4-2.112 1.4-3.453 0-2.757-2.243-5-5-5s-5 2.243-5 5c0 1.341.537 2.555 1.4 3.453-2.507.865-4.474 2.911-5.198 5.547h-.202c-1.103 0-2-.897-2-2v-12c0-1.103.897-2 2-2h18c1.103 0 2 .897 2 2z" />
+                                                <path d="m55 57h-4.18l-2-10h-9.64l-2 10h-4.18c-2.757 0-5 2.243-5 5v1h32v-1c0-2.757-2.243-5-5-5zm-14.18-8h6.36l1.6 8h-9.56zm-10.649 12c.413-1.164 1.525-2 2.829-2h22c1.304 0 2.416.836 2.829 2z" />
+                                                <path d="m57 31h2v2h-2z" />
+                                                <path d="m57 35h2v2h-2z" />
+                                                <path d="m57 39h2v2h-2z" />
+                                            </g>
+                                        </svg>
+
+                                    <div class="multiLevel d-flex all-center pt-4">
+                                        <div class="level-1 d-flex flex-column text-left">
+                                            <h5 class="m-0">20%</h5>
+                                            <span class="p-0">Level 1 Commission</span>
+                                        </div>
+                                        <div class="level-2 d-flex flex-column text-left">
+                                            <h5 class="m-0" style="color:white;">10%</h5>
+                                            <span class="p-0">Level 2 Commission</span>
+                                        </div>
+                                        <div class="level-3 d-flex flex-column text-left">
+                                            <h5 class="m-0" style="color:white;">7%</h5>
+                                            <span class="p-0">Level 3 Commission</span>
+                                        </div>
+                                    </div>
+                                    <div class="multiLevel d-flex all-center pt-4">
+                                        <div class="level-1 d-flex flex-column text-left">
+                                            <h5 class="m-0" style="color:white;">5%</h5>
+                                            <span class="p-0">Level 4 Commission</span>
+                                        </div>
+                                        <div class="level-2 d-flex flex-column text-left">
+                                            <h5 class="m-0" style="color:white;">3%</h5>
+                                            <span class="p-0">Level 5 Commission</span>
+                                        </div>
+                                        <div class="level-3 d-flex flex-column text-left">
+                                            <h5 class="m-0" style="color:white;">2%</h5>
+                                            <span class="p-0">Level 6 Commission</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <p class="mb-0">Refer MaticAlpha to your friends to earn more income as they make investment.</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div id="" class=" col-lg-5 col-xl-4 d-flex flex-column align-items-stretch member-info">
+                        <div class="ybox d-flex flex-column" style="flex:1;">
+                            <h6 class="d-flex align-items-center username p-3 pr-4 pl-4">
+                                <i class="icon icon-marketing" style="color: black;"></i>
+                                <span style="flex:1;color: black;"> &nbsp; <b>Referral</b></span>
+                            </h6>
+                            <div class="row m-0 mr-4 ml-4 mb-4 earningSmall">
+
+                                <div class="col-sm">
+                                    <span style="font-size: 13px;"><b>Total Referred Users</b></span>
+                                    <p id="referrals" style="color: black">0 </p>
+                                </div>
+
+
+
+
+
+
+                            </div>
+                            <div class="d-flex flex-column align-items-stretch justify-content-center flex-fill">
+                                <div class="m-3 mr-4 ml-4 accBalance d-flex align-items-center p-2 pt-3 pb-3" style="background: black;">
+
+                                    <div class="svg d-flex all-center p-2">
+                                        <img src="styles/img/xxx.png" class="icon icon-ads float-ix" width="23px" height="23px" />
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <p class="m-0 p-0 pBalance">Total Earned Referal</p>
+                                        <h4 class="m-0 p-0 mBalance ref-bonus" style="color: white;"> <small></small></h4>
+                                    </div>
+                                </div>
+
+                                <div class="row m-0 mr-4 ml-4 mb-4 earningSmall">
+
+
+
+                                    <div class="col-12 mt-4 p-0">
+                                        <div class="d-flex align-items-center withdraw-btn" style="border-radius:5px;">
+                                            <input class="d-flex all-center" style="flex:1;background:none;border:0;outline:0;text-align:center;color:#fff;font-size:12px;" readonly="readonly" value="https://maticalpha.io/?ref=" id="reflink">
+                                            <button class="icon icon-todo d-flex all-center btn" data-clipboard-action="copy" data-clipboard-target="#reflink" style="background:#fff;margin:0;border:0;outline:0;width:36px;height:36px;font-size:14px; color: black;"></button>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+
+                            <div class="pt-3 pr-4 pl-4 pb-3  d-flex flex-column dataAccount mt-auto">
+                                <div class="d-flex align-items-center p-0 pb-1">
+                                    <a nohref data-toggle="modal" data-target="#bannersModal" class="popup-button d-flex align-items-center p-3 hover-2" style="margin-right:1rem; background: black; color: white;">
+                                        <i class="fas fa-file-powerpoint"></i>
+                                        <span style="color: white;">Documentation</span>
+                                    </a>
+                                    <a target="_blank" href="styles/files/presentation.pdf" class="popup-button d-flex align-items-center p-3 hover-2" style="background: black; color: white;">
+                                        <i class="fas fa-video"></i>
+                                        <span style="color: white;"> Youtube Contest</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+        <section id="deposit-home" class="my-stakes" style="background: none;">
+            <div style="">
+                <div>
+                    <h1 style="color: white; text-align: center;">My Stakes</h1>
+                </div>
+                <div class="container" style="background: none;">
+                    <div class="row align-items-center" id="dashboard" style="background: none; ">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+    </main>
+
+
+
+
+    <footer class="footer" style="background: #black;">
+        <div class="container">
+            <div class="col-12">
+                <div class="copyright text-center" style="cursor:pointer">
+                    <img onclick="window.open('https://net3alpha.net', '_blank')" src="styles/img/net3alpha-04.png" alt="Cryptobrit Logo" width="230px" height="auto">
+                    <img onclick="window.open('HazeCrypto_MATICfomo_audit.pdf', '_blank')" style="width:100px;margin-right:40px" src="https://MATICfomo.io/img/FinalLogo.png"> <img onclick="window.open('https://dappradar.com/polygon/high-risk/MATICfomo', '_blank')"
+                        style="width:230px;margin-right:40px" src="https://MATICfomo.io/img/dappradar_.png">
+                    <svg onclick="window.open('https://polygonscan.com/address/0x6AEdB4f17Ddd4d405bABec26b4de31a06E098696', '_blank')" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="230px" height="auto" viewBox="0 0 767.193 125">
+                     <defs>
+                        <clipPath id="clip-path">
+                           <rect id="Rectangle_32" data-name="Rectangle 32" width="125" height="125" transform="translate(385 345)" fill="#fff"/>
+                        </clipPath>
+                     </defs>
+                     <g id="logo" transform="translate(-220 -218)">
+                        <g id="favicon" transform="translate(-165 -127)">
+                           <g id="Mask_Group_3" data-name="Mask Group 3" clip-path="url(#clip-path)">
+                              <path id="Path_151" data-name="Path 151" d="M91.487,31.85a7.794,7.794,0,0,0-7.605,0L66.434,41.97l-11.855,6.6L37.132,58.69a7.8,7.8,0,0,1-7.605,0L15.658,50.77a7.566,7.566,0,0,1-3.8-6.38V28.77a7.114,7.114,0,0,1,3.8-6.38l13.645-7.7a7.8,7.8,0,0,1,7.605,0l13.645,7.7a7.566,7.566,0,0,1,3.8,6.38V38.89l11.855-6.82V21.95a7.114,7.114,0,0,0-3.8-6.38L37.132,1.051a7.8,7.8,0,0,0-7.605,0L3.8,15.571A7.114,7.114,0,0,0,0,21.95V51.21a7.114,7.114,0,0,0,3.8,6.38l25.724,14.52a7.8,7.8,0,0,0,7.605,0l17.447-9.9,11.855-6.82,17.448-9.9a7.794,7.794,0,0,1,7.605,0l13.645,7.7a7.567,7.567,0,0,1,3.8,6.38v15.62a7.114,7.114,0,0,1-3.8,6.38l-13.645,7.92a7.8,7.8,0,0,1-7.605,0l-13.645-7.7a7.567,7.567,0,0,1-3.8-6.38V65.289l-11.855,6.82v10.12a7.114,7.114,0,0,0,3.8,6.38l25.724,14.52a7.8,7.8,0,0,0,7.605,0l25.724-14.52a7.567,7.567,0,0,0,3.8-6.38V52.97a7.114,7.114,0,0,0-3.8-6.38Z" transform="translate(387 354.939)" fill="#8247e5"/>
+                           </g>
+                        </g>
+                        <path id="polygonscan" d="M36.592-34a21,21,0,0,1,11.479,3.207,21.99,21.99,0,0,1,7.993,9.2A31.977,31.977,0,0,1,58.992-7.416,32.051,32.051,0,0,1,56.064,6.711a21.938,21.938,0,0,1-7.993,9.248,21,21,0,0,1-11.479,3.207,18.775,18.775,0,0,1-10.224-2.7,15.652,15.652,0,0,1-6.227-7.343v34.11H4.248V-33.347H20.141v9.387A15.652,15.652,0,0,1,26.369-31.3,18.775,18.775,0,0,1,36.592-34ZM31.48-20.057a10.817,10.817,0,0,0-8.225,3.392q-3.207,3.392-3.207,9.248a12.952,12.952,0,0,0,3.207,9.2A10.745,10.745,0,0,0,31.48,5.224a10.706,10.706,0,0,0,8.225-3.346Q42.82-1.468,42.82-7.416t-3.114-9.294A10.706,10.706,0,0,0,31.48-20.057ZM91.522-34a29.164,29.164,0,0,1,13.8,3.207,23.508,23.508,0,0,1,9.573,9.248,27.772,27.772,0,0,1,3.485,14.127A27.772,27.772,0,0,1,114.9,6.711a23.508,23.508,0,0,1-9.573,9.248,29.164,29.164,0,0,1-13.8,3.207,29.442,29.442,0,0,1-13.849-3.207,23.434,23.434,0,0,1-9.62-9.248A27.772,27.772,0,0,1,64.568-7.416a27.772,27.772,0,0,1,3.485-14.127,23.434,23.434,0,0,1,9.62-9.248A29.442,29.442,0,0,1,91.522-34Zm0,13.756a10.127,10.127,0,0,0-7.668,3.3q-3.114,3.3-3.114,9.527t3.114,9.48a10.2,10.2,0,0,0,7.668,3.253,10.049,10.049,0,0,0,7.621-3.253q3.067-3.253,3.067-9.48t-3.067-9.527A9.982,9.982,0,0,0,91.522-20.242Zm51.026-43.409V18.515H126.654V-63.651h15.893Zm22.957,30.3L177.959-1.561l11.618-31.787h17.566L174.8,43.238H157.326L169.5,16.563,147.753-33.347ZM232.145-34a18.775,18.775,0,0,1,10.224,2.7,16.2,16.2,0,0,1,6.32,7.343v-9.387h15.8V18.236A29.8,29.8,0,0,1,261.7,31.295a21.385,21.385,0,0,1-8.551,9.248q-5.763,3.439-14.313,3.439-11.711,0-18.728-5.53a22.5,22.5,0,0,1-8.411-15.01h15.707a7.874,7.874,0,0,0,3.392,4.926,12.273,12.273,0,0,0,6.924,1.766,11.142,11.142,0,0,0,7.947-2.835q3.021-2.835,3.021-9.062V9.128a16.2,16.2,0,0,1-6.32,7.343,18.775,18.775,0,0,1-10.224,2.7,21,21,0,0,1-11.479-3.207,21.938,21.938,0,0,1-7.993-9.248,32.051,32.051,0,0,1-2.928-14.127,31.977,31.977,0,0,1,2.928-14.174,21.99,21.99,0,0,1,7.993-9.2A21,21,0,0,1,232.145-34Zm5.112,13.942a10.706,10.706,0,0,0-8.225,3.346q-3.114,3.346-3.114,9.294t3.114,9.294a10.706,10.706,0,0,0,8.225,3.346,10.745,10.745,0,0,0,8.225-3.439,12.952,12.952,0,0,0,3.207-9.2q0-5.855-3.207-9.248A10.817,10.817,0,0,0,237.257-20.057ZM299.715-34a29.164,29.164,0,0,1,13.8,3.207,23.508,23.508,0,0,1,9.573,9.248,27.773,27.773,0,0,1,3.485,14.127A27.773,27.773,0,0,1,323.09,6.711a23.508,23.508,0,0,1-9.573,9.248,29.164,29.164,0,0,1-13.8,3.207,29.441,29.441,0,0,1-13.849-3.207,23.434,23.434,0,0,1-9.62-9.248,27.772,27.772,0,0,1-3.485-14.127,27.772,27.772,0,0,1,3.485-14.127,23.434,23.434,0,0,1,9.62-9.248A29.442,29.442,0,0,1,299.715-34Zm0,13.756a10.128,10.128,0,0,0-7.668,3.3q-3.114,3.3-3.114,9.527t3.114,9.48a10.2,10.2,0,0,0,7.668,3.253,10.049,10.049,0,0,0,7.621-3.253q3.067-3.253,3.067-9.48t-3.067-9.527A9.982,9.982,0,0,0,299.715-20.242ZM367.75-33.905q8.923,0,14.174,5.948T387.175-11.6V18.515H371.282V-9.74q0-5.2-2.742-8.133a9.522,9.522,0,0,0-7.3-2.928,9.932,9.932,0,0,0-7.668,3.067Q350.741-14.666,350.741-9V18.515H334.848V-33.347h15.893v9.48a17.107,17.107,0,0,1,6.645-7.343A19.493,19.493,0,0,1,367.75-33.905Zm48.8-.093q9.852,0,15.754,4.926a21.4,21.4,0,0,1,7.389,13.012H424.817a8.238,8.238,0,0,0-2.928-4.972,8.891,8.891,0,0,0-5.716-1.812,6.249,6.249,0,0,0-4.089,1.162,4.054,4.054,0,0,0-1.394,3.3,3.871,3.871,0,0,0,2.556,3.625,40.756,40.756,0,0,0,8.04,2.417,79.842,79.842,0,0,1,9.759,2.835,16.1,16.1,0,0,1,6.6,4.694q2.788,3.253,2.788,8.737a13.4,13.4,0,0,1-2.417,7.9,15.911,15.911,0,0,1-6.971,5.391,27.24,27.24,0,0,1-10.781,1.952q-10.5,0-16.823-4.647T395.726,1.227h15.336A6.9,6.9,0,0,0,413.9,6.339a10.672,10.672,0,0,0,6.367,1.766,5.927,5.927,0,0,0,4.089-1.255,4.227,4.227,0,0,0,1.394-3.3A3.967,3.967,0,0,0,423.19-.306a46.993,46.993,0,0,0-8.318-2.463,66.52,66.52,0,0,1-9.48-2.6,15.651,15.651,0,0,1-6.413-4.508q-2.7-3.114-2.7-8.5a13.878,13.878,0,0,1,5.3-11.293Q406.879-34,416.545-34Zm56.138,0q10.038,0,16.823,5.53t8.551,15.2H481.234a8.875,8.875,0,0,0-3.067-5.2,9.077,9.077,0,0,0-5.855-1.859,8.494,8.494,0,0,0-6.878,3.3q-2.7,3.3-2.7,9.62t2.7,9.62a8.494,8.494,0,0,0,6.878,3.3,9.077,9.077,0,0,0,5.855-1.859,8.875,8.875,0,0,0,3.067-5.2h16.823q-1.766,9.666-8.551,15.2t-16.823,5.53a27.872,27.872,0,0,1-13.523-3.207,22.911,22.911,0,0,1-9.248-9.248,28.694,28.694,0,0,1-3.346-14.127,28.953,28.953,0,0,1,3.3-14.174,22.612,22.612,0,0,1,9.248-9.2A28.143,28.143,0,0,1,472.683-34Zm53.349,0a18.775,18.775,0,0,1,10.224,2.7,16.2,16.2,0,0,1,6.32,7.343v-9.387h15.8V18.515h-15.8V9.128a16.2,16.2,0,0,1-6.32,7.343,18.775,18.775,0,0,1-10.224,2.7,21,21,0,0,1-11.479-3.207,21.938,21.938,0,0,1-7.993-9.248,32.051,32.051,0,0,1-2.928-14.127,31.977,31.977,0,0,1,2.928-14.174,21.991,21.991,0,0,1,7.993-9.2A21,21,0,0,1,526.032-34Zm5.112,13.942a10.706,10.706,0,0,0-8.226,3.346q-3.114,3.346-3.114,9.294t3.114,9.294a10.706,10.706,0,0,0,8.226,3.346,10.745,10.745,0,0,0,8.225-3.439,12.952,12.952,0,0,0,3.207-9.2q0-5.855-3.207-9.248A10.817,10.817,0,0,0,531.144-20.057Zm71.1-13.849q8.923,0,14.174,5.948T621.671-11.6V18.515H605.778V-9.74q0-5.2-2.742-8.133a9.522,9.522,0,0,0-7.3-2.928,9.932,9.932,0,0,0-7.668,3.067Q585.237-14.666,585.237-9V18.515H569.344V-33.347h15.893v9.48a17.108,17.108,0,0,1,6.646-7.343A19.493,19.493,0,0,1,602.246-33.905Z" transform="translate(365.522 290.651)" fill="#140035"/>
+                     </g>
+                  </svg>
+                </div>
+                <div class="text-center" style="color: white;">
+                    A project of Net3Alpha &copy; 2022
+                </div>
+            </div>
+        </div><br><br>
+    </footer>
+
+    <button onclick="walletc();" class="float-paidout-button floating-connect-btn connect-btnx d-flex align-items-center" style="padding: 5px; background: #904dbd; color: white; border: none;"> <span style="padding: 3px;font-size: 15px; color: white; font-weight: 600;"> Connect Wallet  &nbsp;</span></button>
+
+    <div id="myModal3" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content ybox" style="background: #2e2c28;">
+            <div class="container" style="margin:0px;padding:0px; width:100%;">
+                <div class="row align-items-center justify-content-center" style="margin:0px;padding:0px; width:100%;">
+
+                        <a href="#" class="hover-2" onclick="connectWalletHandler();" style="background: none; width: 100%;"><center><img src="styles/img/metamask.svg" class="" style="padding:8px; margin: auto; width: 65px; height: auto;" />
+                            <div style="color: #e6e6e6; font-weight: 600; font-size: 18px;">Metamask</div>
+                            <div style="color: #e6e6e6; font-weight: 300;">Connect to your MetaMask Wallet</div>
+                        </center> </a>
+                    </div>
+                <div class="row" style="margin-left: 0px;margin-right: 0px;border-bottom: solid grey 1px;"></div>
+                
+                    <div class="row align-items-center justify-content-center" style="margin:0px;padding:0px; width:100%;">
+
+                        <a href="#" class="hover-2" onclick="connectWC();" style="background: none; width: 100%;"><center><img src="styles/img/walletconnect.svg" class="" style="padding:8px; margin: auto; width: 65px; height: auto;" />
+                            <div style="color: #e6e6e6; font-weight: 600; font-size: 18px;">WalletConnect</div>
+                            <div style="color: #e6e6e6; font-weight: 300;">Scan/Connect with WalletConnect to connect</div>
+                        </center> </a>
+                    </div>
+
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+
+    <a href="https://t.me/" target="_blank" class="float-telegram-button d-flex align-items-center"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="30" height="30" viewBox="0 0 210 297" version="1.1" id="svg5126" sodipodi:docname="whitelogo.svg" inkscape:version="0.92.1 r15371">
+         <defs id="defs5120">
+             <linearGradient inkscape:collect="always" id="linearGradient5801">
+                 <stop style="stop-color:#ececec;stop-opacity:1;" offset="0" id="stop5797" />
+                 <stop style="stop-color:#ececec;stop-opacity:0;" offset="1" id="stop5799" />
+             </linearGradient>
+             <linearGradient inkscape:collect="always" xlink:href="#linearGradient5801" id="linearGradient5803" x1="2.7698312" y1="146.83657" x2="208.91979" y2="146.83657" gradientUnits="userSpaceOnUse" />
+         </defs>
+         <sodipodi:namedview id="base" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0" inkscape:pageopacity="0.0" inkscape:pageshadow="2" inkscape:zoom="0.24748737" inkscape:cx="2034.7107" inkscape:cy="958.93239" inkscape:document-units="mm" inkscape:current-layer="g5907" showgrid="false" inkscape:window-width="1920" inkscape:window-height="1017" inkscape:window-x="-8" inkscape:window-y="-8" inkscape:window-maximized="1" inkscape:snap-others="false" inkscape:object-nodes="false" inkscape:snap-nodes="false" />
+         <metadata id="metadata5123">
+             <rdf:RDF>
+                 <cc:Work rdf:about="">
+                     <dc:format>image/svg+xml</dc:format>
+                     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+                     <dc:title></dc:title>
+                 </cc:Work>
+             </rdf:RDF>
+         </metadata>
+         <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1">
+             <g id="g5699">
+                 <g id="g5907" />
+                 <path style="fill:#c0c0c0;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" d="M 56.505542,218.59157 90.554781,184.9979 59.764786,167.97928 49.015005,186.42282 Z" id="path5713" inkscape:connector-curvature="0" />
+                 <path style="opacity:1;fill:#f4f4f4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:67.09999847;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" d="M 208.91979,69.365984 122.78055,224.30716 2.7698312,148.68959 Z" id="path5715" inkscape:connector-curvature="0" sodipodi:nodetypes="cccc" />
+                 <path sodipodi:nodetypes="cccc" inkscape:connector-curvature="0" id="path5717" d="M 96.597631,159.46524 122.78055,224.30716 2.5151726,148.89386 Z" style="opacity:1;fill:#efefef;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:67.09999847;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" />
+                 <path inkscape:connector-curvature="0" style="opacity:1;fill:#d5d5d5;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:67.09999847;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers" d="M 208.91983,69.366032 37.659875,170.51919 l -0.213209,-0.13703 0.08235,0.2143 -0.07832,0.0463 0.127154,0.0804 18.645847,48.46099 7.500285,-31.91315 z" id="path5719" />
+             </g>
+         </g>
+     </svg></a>
+
+
+
+
+
+
+    <script src="styles/js/neon-hesx.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@alch/alchemy-web3@latest/dist/alchemyWeb3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.7.1/dist/umd/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="styles/js/app.js"></script>
+
+<script>
+
+
+
+
+
+        $('button').tooltip({
+            trigger: 'click',
+            placement: 'bottom'
+        });
+
+        function setTooltip(btn, message) {
+            $(btn).tooltip('hide')
+                .attr('data-original-title', message)
+                .tooltip('show');
+        }
+
+        function hideTooltip(btn) {
+            setTimeout(function() {
+                $(btn).tooltip('hide');
+            }, 1000);
+        }
+
+        // Clipboard
+
+        var clipboard = new Clipboard('button');
+
+        clipboard.on('success', function(e) {
+            setTooltip(e.trigger, 'Copied!');
+            hideTooltip(e.trigger);
+        });
+
+        clipboard.on('error', function(e) {
+            setTooltip(e.trigger, 'Failed!');
+            hideTooltip(e.trigger);
+        });
+    </script>
+
+</body>
+
+</html>

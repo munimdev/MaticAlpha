@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MaticAlpha - Stake and Earn Matic Everyday</title>
+	
+    <meta name="description" content="Connect, Stake Your Matic and Get Rewarded on MaticAlpha ROI DApps smart contract. Get Daily Return On Investment In 7 Days when you connect to the Matic ecosystem via MaticAlpha.net">
+    <meta name="author" content="MaticAlpha ROI DApp">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800%7CRanga:700%7CIceberg" rel="stylesheet">  
+    <link rel="icon" href="images/favicon.png">
+    <!-- All CSS -->
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+	<link rel="stylesheet" href="css/photoswipe.css"> 
+	<link rel="stylesheet" href="css/default-skin/default-skin.css">
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+	<meta name="google-site-verification" content="ZxgbrEk8Q235UL-cmb5lviN5gp_ZrvbNFJYVaV1pBb8" />
+	<!-- Modernizr js - required -->
+	<script src="js/modernizr.custom.js"></script>
+<style>
+
+#spreloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+      bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: 0;
+  z-index: 99999;
+    background-color: #222;
+}
+#loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #9370DB;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+#loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #BA55D3;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+}
+#loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #FF00FF;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+}
+@-webkit-keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    0%   {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+.sam {
+    color: orange;
+	font-family: 'Playfair Display', serif;
+    position: relative;
+	text-transform: uppercase;	
+	font-size: 24px;
+	margin: 0;
+	font-weight: 600;
+	transform: scale(1);
+	text-shadow: -1px 0 1px yellow, 
+	0 1px 1px #c6bb9f, 
+	5px 5px 10px rgba(0, 0, 0, 0.4),
+	-5px -5px 10px rgba(0, 0, 0, 0.4);
+}
+
+
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+.text--glitch {
+  margin: auto;
+  color: white;
+  font-size: 3rem;
+  font-weight: 400;
+  position: relative;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+  
+  text-shadow: .05em 0 0 rgba(255, 0, 0, .75),
+              -.05em -.025em 0 rgba(0, 255, 0, .75),
+              .025em .05em 0 rgba(0, 0, 255, .75);
+  
+  animation: glitch 525ms infinite;
+}
+
+.text--glitch::before, 
+.text--glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  letter-spacing: .025em;
+  top: 0;
+  left: 0;
+  opacity: .7;
+}
+.text--glitch::before {
+  animation: glitch 675ms infinite;
+  transform: translate(-.035em, -.025em);
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+.text--glitch::after {
+  animation: glitch 333ms infinite;
+  transform: translate(.035em, .025em);
+  clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: .05em 0 0 rgba(255, 0, 0, .75),
+                -.05em -.025em 0 rgba(0, 255, 0, .75),
+                .025em .05em 0 rgba(0, 0, 255, .75);
+  }
+  14% {
+    text-shadow: .05em 0 0 rgba(255, 0, 0, .75),
+                -.05em -.025em 0 rgba(0, 255, 0, .75),
+                .025em .05em 0 rgba(0, 0, 255, .75);
+  }
+  15% {
+    text-shadow: -.05em -.025em 0 rgba(255, 0, 0, .75),
+                .025em .025em 0 rgba(0, 255, 0, .75),
+                -.05em -.05em 0 rgba(0, 0, 255, .75);
+  }
+  49% {
+    text-shadow: -.05em -.025em 0 rgba(255, 0, 0, .75),
+                .025em .025em 0 rgba(0, 255, 0, .75),
+                -.05em -.05em 0 rgba(0, 0, 255, .75);
+  }
+  50% {
+    text-shadow: .025em .05em 0 rgba(255, 0, 0, .75),
+                .05em 0 0 rgba(0, 255, 0, .75),
+                 0 -.05em 0 rgba(0, 0, 255, .75);
+  }
+  99% {
+    text-shadow: .025em .05em 0 rgba(255, 0, 0, .75),
+                .05em 0 0 rgba(0, 255, 0, .75),
+                 0 -.05em 0 rgba(0, 0, 255, .75);
+  }
+  100% {
+    text-shadow: -.025em 0 0 rgba(255, 0, 0, .75),
+                -.025em -.025em 0 rgba(0, 255, 0, .75),
+                -.025em -.05em 0 rgba(0, 0, 255, .75);
+  }
+}
+
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-delay: 0s !important;
+    animation-delay: -1ms !important;
+    scroll-behavior: auto !important;
+    animation-duration: 1ms !important;
+    transition-duration: 0s !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+  }
+}
+</style>
+	
+</head>
+<body class="mrs-v43 mrs-fill">
+	<div id="spreloader" class="marshall-loading-screen">
+  <div id="loader"></div>
+</div>
+    
+	<canvas></canvas>
+	<canvas></canvas>
+
+
+	<div class="marshall-container" style="margin-top: 0px;">
+		<div class="marshall-col-6 marshall-middle-6 marshall-col-content">
+			
+			<div class="marshall-content jquery-center" style="margin-top: 0px; height: 69%;">
+			    <div>
+	<span class="sam" data-heading="Net3Alpha PRESENTS:">Net3Alpha PRESENTS:</span>
+</div>
+				<span 
+   class="text--glitch" 
+   data-text="MATICALPHA"
+>
+  MATICALPHA
+</span>
+				<h4 class="short_description fadeIn slow">We are about to stun you with the best and rewarding DApp ROI.</h4>
+				
+				<div class="simply-countdown-column"></div>
+				<div class="marshall-button-group fadeIn slow">
+					<div class="morph-button morph-button-modal morph-button-modal-2 marshall-morph-modal morph-button-fixed">
+						<button type="button">Notify Me</button>
+						<div class="morph-content marshall-newsletter-form">
+							<div class="marshall-newsletter-inner">
+								<div class="content-style-form content-style-form-2">
+									<div class="marshall-newsletter-header">
+										<div class="marshall-newsletter-animation-icons">
+											<span class="medium-icon animation-icon-1 animation-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+											<span class="medium-icon animation-icon-2 animation-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+											<span class="medium-icon animation-icon-3 animation-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+											<span class="small-icon animation-icon-4 animation-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+											<span class="small-icon animation-icon-5 animation-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+											<span class="large-icon animation-icon-7 animation-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+											<span class="large-icon animation-icon-8 animation-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+											<span class="large-icon animation-icon-9 animation-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+
+											<span class="medium-icon animation-icon-10 animation-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+											<span class="large-icon animation-icon-16 animation-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+											<span class="large-icon animation-icon-17 animation-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+											<span class="large-icon animation-icon-18 animation-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+										</div>
+										<img src="images/envelope.png" alt="">
+									</div>
+									<span class="close-newsletter icon-close"><i class="fa fa-times-thin fa-2x" aria-hidden="true"></i></span>
+									
+									<div class="marshall-newsletter-description">
+										<h2>Sign Up</h2>
+										<p>Get notified about MaticAlpha</p>
+									</div>
+									
+									
+									
+									<form id="subscription-form" class="marshall-newsletter-content" method="post" action="ajaxserver/serverfile.php">
+							
+								
+								<input id="reg-email" class="input form-success-invisible" name="email" type="email" required placeholder="Your Email" data-validation-type="email">
+								
+							
+								
+								
+								<button class="marshall_submit" name="submit_email" type="submit">Subscribe</button>
+								
+							</form>
+							
+							
+									
+								</div>
+							</div>
+						</div>
+					</div><!-- morph-button -->
+					<a class="marshall-btn" href="/?force" title="" style="background: white; color: black;">
+						Visit MaticAlpha
+					</a>
+					<div><br><a class="marshall-btn marshall-content-view" href="#" title="">
+						<i class="fa fa-info" aria-hidden="true"></i>
+						Download PDF
+					</a></div>
+					<div><br>
+				<p class="fadeIn fast">Join Our Community :</p>
+				<ul class="marshall-social-links">
+					<li><a class="fadeIn fast-child-1"  href="#" title="Telegram"><i class="fa fa-telegram" aria-hidden="true"></i></a></li>
+					<li><a class="fadeIn fast-child-2"  href="#" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+					<li><a class="fadeIn fast-child-3"  href="#" title="Youtube"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+				
+				</ul>
+			</div>
+				</div>
+				
+			</div>
+			
+		
+				
+				
+				
+				
+			
+				
+				
+			</div>
+			
+		
+			
+			
+
+
+			
+			
+			
+		</div>
+		
+				
+
+
+	<!-- All marshall js files -->
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/classie.js"></script>
+	<script type="text/javascript" src="js/uiMorphingButton_fixed.js"></script>
+	<script type="text/javascript" src="js/form-init.js"></script>
+	<script type="text/javascript" src="js/jquery.ajaxchimp.min.js"></script>
+	<script type="text/javascript" src="js/photoswipe.min.js"></script> 
+	<script type="text/javascript" src="js/photoswipe-ui-default.min.js"></script> 
+	<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mCustomScrollbar.min.js"></script>
+	<script type="text/javascript" src="js/jquery.textarea_autosize.js"></script>
+	<script type="text/javascript" src="js/gallery.js"></script>
+	<script type="text/javascript" src="js/v43/neon-hex.js"></script>
+	<script type="text/javascript" src="js/v43/simplyCountdowns.min.js"></script>
+	<script type="text/javascript" src="js/mains.js"></script>
+	
+	
+</body>
+
+
+</html>
