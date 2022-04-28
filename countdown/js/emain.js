@@ -72,7 +72,7 @@ if ( $("#countdown_text_layout").is_exist() ) {
   simplyCountdown('#countdown_text_layout', {
       year: 2022,
       month: 4,
-      day: 22,
+      day: 27,
       inline: false,
       words: {
           days: 'days',
@@ -87,8 +87,8 @@ if ( $('.simply-countdown-column').is_exist() ) {
   simplyCountdown('.simply-countdown-column', {
       year: 2022,
       month: 4,
-      day: 22,
-      enableUtc: false
+      day: 24,
+      enableUtc: true
   });
 }
 

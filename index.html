@@ -2,321 +2,245 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>MaticAlpha</title>
+    	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MaticAlpha - Stake and Earn Matic Everyday</title>
+	
+    <meta name="description" content="Connect, Stake Your Matic and Get Rewarded on MaticAlpha ROI DApps smart contract. THIS IS THE BEST ROI DAPP YET">
+    <meta name="author" content="Net3Alpha">
+ 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="shortcut icon" href="./styles/img/favicon.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="./styles/img/favicon-2.png" type="image/x-icon" />
     <link rel='stylesheet' href='./styles/css/bootstrap.min.css'>
     <link rel='stylesheet' href='./styles/css/fontawesome/css/all.min.css'>
     <link rel='stylesheet' type='text/css' href='./styles/css/main.css'>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SXXJMSLDLY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-SXXJMSLDLY');
+</script>
 
 <style>
+
+          
+@import url("icons/iconfont.css");
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam:ital,wght@0,300;0,500;0&display=swap');                        
+                                .yt-wrapper yt-wrapper_align_right, .yt-servicelink {display: none !important;
+                                    
+                                }
+                                
+                           
     /*!
   * ======================================================================
   * ======================================================================
   */
   
-  
-@import url("icons/iconfont.css");
-@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+  .text-red {
+  color: red;
+}
+.blink-hard {
+  animation: blinkers 1s step-end infinite;
+}
+.blink-soft {
+  animation: blinker 1.2s linear infinite;
+}
+@keyframes blinker {
+  30% {
+    color: white;
+  }
+    90% {
+    opacity: 0;
+  }
+}
+
+@keyframes blinkers {
+  30% {
+    color: black;
+  }
+    90% {
+    opacity: 0;
+  }
+}
 
 
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam:ital,wght@0,300;0,500;0&display=swap');
-.connect-btnn {
-    max-width: 40px;
-    overflow:hidden;
+
+  pclass {
+      font-size: 16px;
+      color: black;
+  }
+  .closen {
+  color: black;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
-.connect-btnn:hover {
-    max-width: 300px;
-    overflow:hidden;
-}
-a, a > span {
-  position: relative;
-  color: inherit;
+
+.closen:hover {
+  color: gray;
   text-decoration: none;
-  line-height: 24px;
+  cursor: pointer;
 }
-a:before, a:after, a > span:before, a > span:after {
-  content: '';
-  position: absolute;
-  transition: transform .5s ease;
-}
-
-.hover-1 {
-  padding-top: 10px;
-}
-.hover-1:before {
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 2px;
-  background: #492059;
-  transform: scaleX(0);
-}
-.hover-1:hover:before {
-  transform: scaleX(1);
-}
-.hover-2 {
-  padding: 10px;
-}
-.hover-2:before, .hover-2:after {
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  border-style: solid;
-  border-color: orange;
-}
-.hover-2:before {
-  border-width: 2px 0 2px 0;
-  transform: scaleX(0);
-}
-.hover-2:after {
-  border-width: 0 2px 0 2px;
-  transform: scaleY(0);
-}
-.hover-2:hover:before, .hover-2:hover:after {
-  transform: scale(1, 1);
+ .dontt {
+  color: black;
+  float: left;
+  font-size: 12px;
+  font-weight: normal;
 }
 
-
-
-#preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-      bottom: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
-  text-align: center;
-  top: 0;
-  z-index: 99999;
-    background-color: #222;
+.dontt:hover {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
 }
-#loader {
+
+.dropdown-menu.show {
     display: block;
-    position: relative;
-    left: 50%;
-    top: 50%;
-    width: 150px;
-    height: 150px;
-    margin: -75px 0 0 -75px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #9370DB;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-}
-#loader:before {
-    content: "";
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #BA55D3;
-    -webkit-animation: spin 3s linear infinite;
-    animation: spin 3s linear infinite;
-}
-#loader:after {
-    content: "";
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    border-top-color: #FF00FF;
-    -webkit-animation: spin 1.5s linear infinite;
-    animation: spin 1.5s linear infinite;
-}
-@-webkit-keyframes spin {
-    0%   {
-        -webkit-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-@keyframes spin {
-    0%   {
-        -webkit-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
+	z-index:99;
+	background:#fff;
+	border-color:#F3F4F8;
 }
 
-#toaste {
-    visibility: hidden;
-    max-width: 500px;
-    height: 50px;
-    max-height: 100px;
-    /*margin-left: -125px;*/
-    margin: auto;
-    background-color: #24d135;
-    color: #fff;
-    text-align: center;
-    border-radius: 2px;
-
-    overflow: hidden;
-    position: fixed;
-    z-index: 1;
-    left: 0;right:0;
-    bottom: 30px;
-    font-size: 17px;
-    white-space: nowrap;
+ /* The Modal (background) */
+.modaln {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 300px; /* Location of the box */
+  left: 0;
+  top: 0;
+  margin:auto;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+   -webkit-backdrop-filter: blur(5px);
+backdrop-filter: blur(5px);
 }
 
-#toaste #imgg{ 
-	width: 50px;
-	height: 50px;
+.modal-contentn {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  max-width: 200px;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+} 
+ul {
+  list-style: none;
+}
+nav ul {
+  list-style: none;
+  text-align: center;
+}
+ 
+nav li {
+  position: relative;
+  height: 44px;
+  font-size:16px;
+  text-transform: uppercase;
+  color: #ffffff;
+  cursor: pointer;
+} 
+ul .dropdown li a {
     
-    float: left;
+    background: rgba(117, 80, 15);
+  color: #ffffff;
+  display:block;
+  max-width: 200px;
+  font-size: 16px;
+   align-items: center;
+  justify-content: center;
+  z-index: 2;
+
+}
+.dropdown li a {
     
-    padding-top: 16px;
-    padding-bottom: 16px;
+    background: rgba(117, 80, 15);
+  color: #ffffff;
+  display:block;
+  max-width: 200px;
+  font-size: 16px;
+   align-items: center;
+  justify-content: center;
+  z-index: 2;
+
+}
+#myModal3 {
     
-    box-sizing: border-box;
+  z-index: 9999;
 
+}
+  
+.bbb{
+  display: block !important;
     
-    background-color: #111;
-    color: #fff;
 }
-.green {
-    background-color: #24d135;
-    color: #fff;
-	
-}
-.red {
-    background-color: red;
-    color: #fff;
-	
-}
-.yellow {
-    background-color: orange;
-    color: #fff;
-	
-}
-#toaste #desc{
-    color: #fff;
-    padding: 16px;
-    overflow: hidden;
-	white-space: nowrap;
-}
-
-#toaste.sshow {
-    visibility: visible;
-    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
-}
-
-@-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;} 
-    to {bottom: 30px; opacity: 1;}
-}
-
-@keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 30px; opacity: 1;}
-}
-
-@-webkit-keyframes expand {
-    from {min-width: 50px} 
-    to {min-width: 350px}
-}
-
-@keyframes expand {
-    from {min-width: 50px}
-    to {min-width: 350px}
-}
-@-webkit-keyframes stay {
-    from {min-width: 350px} 
-    to {min-width: 350px}
-}
-
-@keyframes stay {
-    from {min-width: 350px}
-    to {min-width: 350px}
-}
-@-webkit-keyframes shrink {
-    from {min-width: 350px;} 
-    to {min-width: 50px;}
-}
-
-@keyframes shrink {
-    from {min-width: 350px;} 
-    to {min-width: 50px;}
-}
-
-@-webkit-keyframes fadeout {
-    from {bottom: 30px; opacity: 1;} 
-    to {bottom: 60px; opacity: 0;}
-}
-
-@keyframes fadeout {
-    from {bottom: 30px; opacity: 1;}
-    to {bottom: 60px; opacity: 0;}
-}
-
-
-        .jhjj:hover {
-            background: #808080 !important;
-        }
-        
-        body.mrs-fill canvas {
-            height: 100%;
-            left: 0;
-            min-height: 640px;
-            position: absolute;
-            top: 0;
-            width: 100%;
-            background-attachment: fixed;
-            position: fixed;
-        }
-        
-        .blur {
-            -webkit-backdrop-filter: blur(3.7px);
-        }
-        .blurz {
-            -webkit-backdrop-filter: blur(3.7px);
-            backdrop-filter: blur(3.7px);
+  
+.bb{
+  display: none;
     
-        }
-        .blurzz {
-            -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px);
-        }
-        .black {
-            color: black;
-        }
-        
-        .blue {
-            color: blue;
-        }
-        
-        .white {
-            color: white;
-        }
-        
-        .launch-button:hover {
-            cursor: pointer;
-        }
+}
+
+.aaa{
+  display: block !important;
+    
+}
+  
+.aa{
+  display: none;
+    
+}
+  
+.dropdown  li:nth-child(1) {
+   animation: animate 300ms ease-in-out;
+}
+
+.dropdown  li:nth-child(2) {
+   animation: animate 450ms ease-in-out;
+}
+
+.dropdown  li:nth-child(3) {
+   animation: animate 600ms ease-in-out;
+}
+.dropdown  li:nth-child(4) {
+   animation: animate 750ms ease-in-out;
+}
+.dropdown  li:nth-child(5) {
+   animation: animate 900ms ease-in-out;
+}
+.dropdown  li:nth-child(6) {
+   animation: animate 1050ms ease-in-out;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(-60px);
+  }
+
+  80% {
+    transform: scale(1.2) translateY(10px);
+  }
+  
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+
+
 </style>
     <script src="./styles/js/jquery-3.4.1.min.js"></script>
     <script src="./styles/js/bootstrap.bundle.min.js"></script>
@@ -364,18 +288,31 @@ a:before, a:after, a > span:before, a > span:after {
 
                 <div class="collapse navbar-collapse" id="MainNav">
                     <ul class="navbar-nav mr-auto mt-sms-3">
-                        <li class="nav-item">
-                            <a class="nav-link text-center hover-2" style="color: white;" href="/">Documentation</a>
+                        <li class="nav-item dropdown">
+                            <a id="download" class="nav-link text-center hover-2 dropbtn" style="color: white;" href="files/maticalpha-white-paper.pdf" target="_blank">White Paper</a>
+                                  <ul id="bbbb" class="dropdown-content bb">
+        <!-- <li class="text-center" style="padding-top:10px;"><a href="files/maticalpha.pdf" class="hover-2 white" target="_blank">English</a> </li>
+        <li class="text-center"><a href="files/maticalpha-french.pdf" class="hover-2 white" style="" target="_blank">French</a></li>
+        <li class="text-center"><a href="files/maticalpha-spanish.pdf" class="hover-2 white" target="_blank">Spanish</a></li>
+        <li class="text-center"><a href="files/maticalpha-german.pdf" class="hover-2 white" target="_blank">German</a></li>
+        <li class="text-center"><a href="files/maticalpha-indonesia.pdf" class="hover-2 white" target="_blank">Indonesian</a></li>
+        <li class="text-center"><a href="files/maticalpha-portuguese.pdf" class="hover-2 white" target="_blank">Portuguese</a></li> -->
+      </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  text-center hover-2" href="?a=cust&amp;page=aboutus" style="color: white;">Audit</a>
+                            <a class="nav-link  text-center hover-2" href="#" style="color: white;">Audit</a>
                         </li>
 
+                       <!-- <li class="nav-item">
+                            <a class="nav-link  text-center hover-2 blink-soft" style="color: red;" onclick="giveaway();">Give away</a>
+                        </li> -->
+                        
+                        
                         <li class="nav-item">
-                            <a class="nav-link  text-center hover-2" href="?a=cust&amp;page=affiliate" style="color: white;">Youtube Contest</a>
+                            <a class="nav-link  text-center hover-2" href="https://polygonscan.com/address/0x6be4746140cC17f4EfFA15eac978d71eD3A2685C" style="color: white;" target="_blank">Contract</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link  text-center hover-2" href="?a=cust&amp;page=faq" style="color: white;">Contract</a>
+                         <li class="nav-item">
+                            <a class="nav-link  text-center hover-2" href="https://t.me/Net3Alpha" style="color: white; background: #1f93ff;" target="_blank"><img src="https://icons.iconarchive.com/icons/icojam/onebit-4/32/speaker-icon.png" width="20px" height="auto" alt="icon"/> Channel</a>
                         </li>
                        
                         
@@ -383,7 +320,7 @@ a:before, a:after, a > span:before, a > span:after {
 
 
                     <ul class="navbar-nav navbar-nav--right ml-auto d-flex">
-                        <li class="nav-item right-navi d-flex">
+                       <div id="ytWidget"></div> &nbsp; <li class="nav-item right-navi d-flex"> &nbsp;
                             <button class="register btn connect-btn" onclick="walletc();" style="background: #904dbd; color: white;"> <i class="fas fa-link mr-2 connect-wallet"></i>  CONNECT WALLET</button>
 
                         </li>
@@ -398,7 +335,7 @@ a:before, a:after, a > span:before, a > span:after {
 
 
     <main>
-<div id="toaste"><div id="imgg" style="background-size: 25px 25px; background-repeat: no-repeat; background-position: center;"></div><div id="desc"><div style="color: white;" id="response-text"><span id="reponse-msg"></span> </div></div></div>
+<div id="toaste" style="z-index: 4;"><div id="imgg" style="background-size: 25px 25px; background-repeat: no-repeat; background-position: center;"></div><div id="desc"><div style="color: white; text-align: left;" id="response-text"><span id="reponse-msg"></span> </div></div></div>
         <section id="k" style="background: none;margin-bottom:0rem;">
 
             <div class="container" style="margin-bottom:0rem;">
@@ -411,9 +348,13 @@ a:before, a:after, a > span:before, a > span:after {
 <h3 class="pb-3" style="color: white;">Earn Matic Everyday With <b>MaticAlpha</b></h3>
 
                         <p class="pb-7 pt-6" style="color: white; font-size: 15px;">
-                            <h4 style="color:white;">The contract offers 10% to 112% net interest, if capitals are excluded, within a period of 5 to 35 days</h4>
-                            <div><span style="background: orange; color: white; font-size: 19px;font-weight: 600;">IMPORTANT NOTES</span></div>
-                            <ol style="color: white;"><li>
+                            <h4 style="color:white;">THE BEST ROI DAPP YET!</h4>
+                            <div><span style="background: orange; color: white; font-size: 19px;font-weight: 700; padding: 5px; margin: 7px;">IMPORTANT NOTES:-</span></div>
+                            <ol style="color: white;">
+                                <li>
+                            The contract offers 110% to 212% within a period of 5 to 35 days
+                            </li>
+                            <li>
                              Deposits amount ranges from 10 Matic and above.
                             </li>
                             <li>
@@ -423,7 +364,7 @@ a:before, a:after, a > span:before, a > span:after {
                                 Given that participants don't withdraw their plan reward prematurely, they will get hold reward. Hold-reward varies with staking plans and are withrawable anytime.
                             </li>
                             <li>
-                                You get your hold reward, wether or not you withdraw it prematurely.
+                               Another explanation: You can withdraw your hold reward anytime, but withdrawing plan reward prematurely will make you forfeit hold reward.
                             </li>
                             <li>
                                Participants can stake/invest on upto 5 plans simultaneously.
@@ -439,8 +380,13 @@ a:before, a:after, a > span:before, a > span:after {
                             <li>
                                 A reinvestment bonus is instantly paid to your address when you reinvest. Reinvestment bonus varies with staking plans.
                             </li>
+                            <li>
+                               This is the best ROI Dapp yet! MaticAlpha provides more security and improved lifespan
+                            </li>
                             </ol>
-                            <center><h4 class="pb-3" style="color: white;">SEE DOCUMENTATION FOR FULL DETAILS</h4></center>
+                            <center><h4 class="pb-3" style="color: white;">SEE WHITE PAPER FOR FULL DETAILS</h4></center>
+                            
+
                             <div align="center" style="margin-right: 10px;">
                                 <i class="icon icon-star color-yellow" style="color:yellow;"></i>
                                 <i class="icon icon-star color-yellow" style="color:yellow;"></i>
@@ -449,23 +395,43 @@ a:before, a:after, a > span:before, a > span:after {
                                 <i class="icon icon-star color-yellow" style="color:yellow;"></i>
                             </div>
 
-                            <center>
-                                <a class="btn" href="?a=cust&amp;page=invest" role="button"><span style="padding: 0px;">CONTRACT</span></a>
-
-                                <a class="btn btn-outline" href="?a=deposit" role="button" style="color: white; border-color: white;"><span  style="color: white; padding: 0px;"><i class="fas fa-file-alt" style="color: white;"></i> DOCUMENTATION</span></a>
-
-                                <a class="btn" href="?a=cust&amp;page=invest" role="button" style="padding: 0px;"><span>AUDIT</span></a>
-
+                             <center>
+                                <a class="btn" href="https://polygonscan.com/address/0x6be4746140cC17f4EfFA15eac978d71eD3A2685C" role="button" target="_blank"><span style="padding: 0px;">CONTRACT</span></a>
+                                    <a class="nav-link btn btn-outline" target="_blank" href="files/maticalpha-white-paper.pdf" role="button" style="color: white; border-color: white;"><span  style="color: white; padding: 0px;"><i class="fas fa-file-alt" style="color: white;"></i> WHITEPAPER</span></a><a class="btn" href="#" role="button" style="padding: 0px;"><span>AUDIT</span></a>
+                                
+                                
                             </center>
 
+   
+    </div>
 
-                    </div>
                     <div class="col-lg-6 col-md-6"><img src="styles/img/ban.svg" width="95%" height="auto" />
                     </div>
 
                 </div>
 
             </div>
+ <div id="myModal4" class="modaln">
+
+        <!-- Modal content -->
+        <div class="modal-contentn ybox blurzz" style="background: none; margin:auto;">
+            <ul id="aaaa" align="right" class="dropdown">
+        <li class="text-center closeonclicks" style="padding-top:10px;"><a href="files/maticalpha.pdf" class="hover-2 white" target="_blank">English</a> </li>
+        <li class="text-center closeonclicks"><a href="files/maticalpha-french.pdf" class="hover-2 white" style="" target="_blank">French</a></li>
+        <li class="text-center closeonclicks"><a href="files/maticalpha-spanish.pdf" class="hover-2 white" target="_blank">Spanish</a></li>
+        <li class="text-center closeonclicks"><a href="files/maticalpha-german.pdf" class="hover-2 white" target="_blank">German</a></li>
+        <li class="text-center closeonclicks"><a href="files/maticalpha-indonesia.pdf" class="hover-2 white" target="_blank">Indonesian</a></li>
+        <li class="text-center closeonclicks"><a href="files/maticalpha-portuguese.pdf" class="hover-2 white" target="_blank">Portuguese</a></li>
+      </ul>
+                
+            
+
+            </div>
+
+
+
+
+        </div>
 
         </section>
 
@@ -482,7 +448,7 @@ a:before, a:after, a > span:before, a > span:after {
                             <div class="col-lg-3 col-6 ">
                                 <div class="site-statsx d-flex flex-column justify-content-lg-center align-items-lg-center blurz">
                                     <p class="d-flex align-items-center" style="color: white;"><b><i class="icon icon-star3"></i> ACTIVE DAYS</b></p>
-                                    <b>0 <span>day</span></b>
+                                    <b><span id="daysactive">0</span> <span>days</span></b>
                                 </div>
                             </div>
                             <div class="col-lg-3 col-6 ">
@@ -1081,7 +1047,58 @@ a:before, a:after, a > span:before, a > span:after {
                                 </div>
 
 
+ <div id="myModal8" class="modal">
 
+                                    <!-- Modal content -->
+                                    <div class="modal-content" style="background: white; color: black; padding: 2px 16px 4px 16px;">
+                                        <div style="padding: 2px 16px;">
+                                            <button class="dontt" style="border: none; background:none; color: #616161; padding-top: 8px;" id="forgetMe">Don't show this again</button><span class="closen">&times;</span>
+
+                                        </div>
+
+                                    <center style="color: red;" class="blink-hard"> 📣 GIVEAWAY GIVEAWAY GIVEAWAY 📣</center>   
+
+<p style="font-size: 14px; color: black; font-weight: 500;">MaticAlpha 🔰 will be giving away 5000 worth of MATIC to the first 500 participants to complete the giveaway tasks 🥳
+First 500 participants gets <span style="color: purple;">10 MATIC TOKEN EACH</span>, This is also away to raise funds for some of our members short on capital to participate in the contract staking.</p>
+
+<div style="font-weight: bold;">Want to participate? Follow these few simple steps 👇🏻</div>
+
+ <ol>
+     <li>
+     Join our Official Net3Alpha telegram announcements channel (<a href="https://t.me/Net3Alpha" target="_blank">Visit Channel</a>)
+ </li>
+ <li>
+     Follow us on Twitter (<a href="https://twitter.com/net3alpha" target="_blank">Visit Twitter</a>)
+ </li>
+ <li>
+     Like and retweet our pinned tweet on Twitter
+ </li>
+ <li>
+     Subscribe to our YouTube channel (<a href="https://www.youtube.com/channel/UCDdEclLkULJFuDQ4rezrZzQ" target="_blank">Visit Channel</a>)
+ </li>
+  <li>
+     Invite 3 of your friends to join the official MaticAlpha Telegram group. (<a href="https://t.me/maticalphaofficial/" target="_blank">Visit Telegram Group</a>)
+ </li>
+  <li>
+     Submit wallet address and other requested informations to receive giveaway. (<a href="https://forms.gle/ria7unU5N96nL5XQ8" target="_blank">Submit Wallet</a>)
+ </li>
+ </ol>
+ 
+<p style="font-size: 14px; color: black;">🎉 Hurry up, be among the first 500 to qualify for this bonus, start winning early as we launch the best ROI Dapp MaticAlpha 🔥🔥🔥</p>
+
+<p style="font-size: 14px; color: black;">Don't forget to JOIN in fast. INVEST on launch day, SHARE your referral codes and have them DEPOSIT using your link and get more bonuses </p>
+
+
+<p style="font-size: 14px; color: black;"><b>GIVEAWAY PARTICIPATION LASTS UNTIL 25TH APRIL, 12AM UTC</b></p>
+
+
+<center><b>⚡💯 MaticAlpha is always bullish⚡💯</b></center>
+
+                                        
+
+                                    </div>
+
+                                </div>
 
                                 <div id="myModal" class="modal">
 
@@ -1311,18 +1328,20 @@ a:before, a:after, a > span:before, a > span:after {
                                         <img src="styles/img/xxx.png" class="icon icon-ads float-ix" width="23px" height="23px" />
                                     </div>
                                     <div class="d-flex flex-column">
-                                        <p class="m-0 p-0 pBalance">Total Earned Referal</p>
+                                        <p class="m-0 p-0 pBalance">Ref. Bonus Balance</p>
                                         <h4 class="m-0 p-0 mBalance ref-bonus" style="color: white;"> <small></small></h4>
                                     </div>
                                 </div>
-
+                                
+<div class="col-sm wrap" align="center" style="margin: 7px;"><button id="" class="js-open btn-open is-active btn" style="background: #904dbd; color: white;">Claim Bonus</button></div>
+                   
                                 <div class="row m-0 mr-4 ml-4 mb-4 earningSmall">
 
 
 
                                     <div class="col-12 mt-4 p-0">
                                         <div class="d-flex align-items-center withdraw-btn" style="border-radius:5px;">
-                                            <input class="d-flex all-center" style="flex:1;background:none;border:0;outline:0;text-align:center;color:#fff;font-size:12px;" readonly="readonly" value="https://maticalpha.io/?ref=" id="reflink">
+                                            <input class="d-flex all-center" style="flex:1;background:none;border:0;outline:0;text-align:center;color:#fff;font-size:12px;" readonly="readonly" value="https://maticalpha.net/?ref=" id="reflink">
                                             <button class="icon icon-todo d-flex all-center btn" data-clipboard-action="copy" data-clipboard-target="#reflink" style="background:#fff;margin:0;border:0;outline:0;width:36px;height:36px;font-size:14px; color: black;"></button>
                                         </div>
                                     </div>
@@ -1333,12 +1352,11 @@ a:before, a:after, a > span:before, a > span:after {
 
 
 
-
                             <div class="pt-3 pr-4 pl-4 pb-3  d-flex flex-column dataAccount mt-auto">
                                 <div class="d-flex align-items-center p-0 pb-1">
-                                    <a nohref data-toggle="modal" data-target="#bannersModal" class="popup-button d-flex align-items-center p-3 hover-2" style="margin-right:1rem; background: black; color: white;">
+                                    <a  href="files/maticalpha-white-paper.pdf" target="_blank" data-toggle="modal" data-target="#bannersModal" class="popup-button d-flex align-items-center p-3 hover-2" style="margin-right:1rem; background: black; color: white;">
                                         <i class="fas fa-file-powerpoint"></i>
-                                        <span style="color: white;">Documentation</span>
+                                        <span style="color: white;">WhitePaper</span>
                                     </a>
                                     <a target="_blank" href="styles/files/presentation.pdf" class="popup-button d-flex align-items-center p-3 hover-2" style="background: black; color: white;">
                                         <i class="fas fa-video"></i>
@@ -1391,14 +1409,14 @@ a:before, a:after, a > span:before, a > span:after {
 
 
 
-    <footer class="footer" style="background: #black;">
-        <div class="container">
-            <div class="col-12">
+      <footer class="footer" style="background: #black; padding-bottom: 0px;">
+        <div class="container" style="margin-bottom:0px; padding-bottom: 0px;">
+            <div class="col-12" style="margin-bottom:0px; padding-bottom: 0px;">
                 <div class="copyright text-center" style="cursor:pointer">
-                    <img onclick="window.open('https://net3alpha.net', '_blank')" src="styles/img/net3alpha-04.png" alt="Cryptobrit Logo" width="230px" height="auto">
-                    <img onclick="window.open('HazeCrypto_MATICfomo_audit.pdf', '_blank')" style="width:100px;margin-right:40px" src="https://MATICfomo.io/img/FinalLogo.png"> <img onclick="window.open('https://dappradar.com/polygon/high-risk/MATICfomo', '_blank')"
-                        style="width:230px;margin-right:40px" src="https://MATICfomo.io/img/dappradar_.png">
-                    <svg onclick="window.open('https://polygonscan.com/address/0x6AEdB4f17Ddd4d405bABec26b4de31a06E098696', '_blank')" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="230px" height="auto" viewBox="0 0 767.193 125">
+                    <img onclick="window.open('https://net3alpha.org', '_blank')" src="styles/img/net3alpha-04.png" alt="Cryptobrit Logo" width="200px" height="auto" style="margin:25px">
+                    <img onclick="window.open('HazeCrypto_MATICfomo_audit.pdf', '_blank')" style="width:60px;margin-right:25px" src="https://MATICfomo.io/img/FinalLogo.png"> <img onclick="window.open('https://dappradar.com/polygon/high-risk/MATICfomo', '_blank')"
+                        style="width:200px;margin:25px" src="https://MATICfomo.io/img/dappradar_.png">
+                    <svg onclick="window.open('https://polygonscan.com/address/0x6AEdB4f17Ddd4d405bABec26b4de31a06E098696', '_blank')" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin:25px" width="200px" height="auto" viewBox="0 0 767.193 125">
                      <defs>
                         <clipPath id="clip-path">
                            <rect id="Rectangle_32" data-name="Rectangle 32" width="125" height="125" transform="translate(385 345)" fill="#fff"/>
@@ -1414,9 +1432,9 @@ a:before, a:after, a > span:before, a > span:after {
                      </g>
                   </svg>
                 </div>
-                <div class="text-center" style="color: white;">
-                    A project of Net3Alpha &copy; 2022
-                </div>
+                <div class="" style="color: white;"><center>A project of <a href="https://net3alpha.org" target="_blank">Net3Alpha</a> &copy; 2022</center>
+                    <script src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget&pageLang=en&widgetTheme=light&autoMode=true" type="text/javascript"></script>
+
             </div>
         </div><br><br>
     </footer>
@@ -1430,16 +1448,16 @@ a:before, a:after, a > span:before, a > span:after {
             <div class="container" style="margin:0px;padding:0px; width:100%;">
                 <div class="row align-items-center justify-content-center" style="margin:0px;padding:0px; width:100%;">
 
-                        <a href="#" class="hover-2" onclick="connectWalletHandler();" style="background: none; width: 100%;"><center><img src="styles/img/metamask.svg" class="" style="padding:8px; margin: auto; width: 65px; height: auto;" />
+                        <a class="hover-2" onclick="connectWalletHandler();" style="background: none; width: 100%;"><center><img src="styles/img/metamask.svg" class="" style="padding:8px; margin: auto; width: 65px; height: auto;" />
                             <div style="color: #e6e6e6; font-weight: 600; font-size: 18px;">Metamask</div>
                             <div style="color: #e6e6e6; font-weight: 300;">Connect to your MetaMask Wallet</div>
                         </center> </a>
                     </div>
                 <div class="row" style="margin-left: 0px;margin-right: 0px;border-bottom: solid grey 1px;"></div>
                 
-                    <div class="row align-items-center justify-content-center" style="margin:0px;padding:0px; width:100%;">
+                    <div class="row align-items-center justify-content-center" style="margin:0px;padding:0px; width:100%;"> 
 
-                        <a href="#" class="hover-2" onclick="connectWC();" style="background: none; width: 100%;"><center><img src="styles/img/walletconnect.svg" class="" style="padding:8px; margin: auto; width: 65px; height: auto;" />
+                        <a class="hover-2" onclick="connectWC();" style="background: none; width: 100%;"><center><img src="styles/img/walletconnect.svg" class="" style="padding:8px; margin: auto; width: 65px; height: auto;" />
                             <div style="color: #e6e6e6; font-weight: 600; font-size: 18px;">WalletConnect</div>
                             <div style="color: #e6e6e6; font-weight: 300;">Scan/Connect with WalletConnect to connect</div>
                         </center> </a>
@@ -1454,7 +1472,7 @@ a:before, a:after, a > span:before, a > span:after {
 
     </div>
 
-    <a href="https://t.me/" target="_blank" class="float-telegram-button d-flex align-items-center"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="30" height="30" viewBox="0 0 210 297" version="1.1" id="svg5126" sodipodi:docname="whitelogo.svg" inkscape:version="0.92.1 r15371">
+    <a href="https://t.me/maticalphaofficial" target="_blank" class="float-telegram-button d-flex align-items-center"><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="30" height="30" viewBox="0 0 210 297" version="1.1" id="svg5126" sodipodi:docname="whitelogo.svg" inkscape:version="0.92.1 r15371">
          <defs id="defs5120">
              <linearGradient inkscape:collect="always" id="linearGradient5801">
                  <stop style="stop-color:#ececec;stop-opacity:1;" offset="0" id="stop5797" />
@@ -1493,12 +1511,9 @@ a:before, a:after, a > span:before, a > span:after {
     <script src="https://cdn.jsdelivr.net/npm/@alch/alchemy-web3@latest/dist/alchemyWeb3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.7.1/dist/umd/index.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-    <script src="styles/js/app.js"></script>
+    <script src="styles/js/apps.js"></script>
 
 <script>
-
-
-
 
 
         $('button').tooltip({
@@ -1531,6 +1546,72 @@ a:before, a:after, a > span:before, a > span:after {
             setTooltip(e.trigger, 'Failed!');
             hideTooltip(e.trigger);
         });
+       
+</script>
+
+<script>
+var date0 = new Date(2022, 4, 24); // 1 Jan 2015
+var date1 = new Date(); // 1 Feb 2015
+
+var numberOfDays = Math.ceil((date1 - date0) / 8.64e7 + 29); // 31
+
+document.getElementById("daysactive").innerHTML = numberOfDays;
+
+var modal4 = document.getElementById("myModal4");
+var modal8 = document.getElementById("myModal8");
+var modal6 = document.getElementById("myModal3");
+var modal7 = document.getElementById("download");
+var btn4 = document.getElementById("myBtn4");
+var span4 = document.getElementsByClassName("closeonclicks")[0];
+var span8 = document.getElementsByClassName("closen")[0];
+
+function showIt2() {
+    
+  document.getElementById("myModal8").style.display = "block";
+}
+if(localStorage.getItem("DontShow")) {
+       
+    }
+    else
+    {
+       // setTimeout("showIt2()", 3000);
+    };
+    $(document).on("click", "#forgetMe", function() {
+        localStorage.setItem("DontShow", "true");
+        modal8.style.display = "none";
+    });
+    
+
+var span5 = document.getElementsByClassName("modaln")[0];
+span4.onclick = function() {
+  modal4.style.display = "none";
+}
+span8.onclick = function() {
+  modal8.style.display = "none";
+}
+span5.onclick = function() {
+  modal4.style.display = "none";
+}
+span6.onclick = function() {
+  modal6.style.display = "none";
+}
+function download() {
+  modal4.style.display = "block";
+};
+function giveaway() {
+  modal8.style.display = "block";
+};
+
+
+
+function bbb() {
+  document.getElementById("bbbb").classList.toggle("bbb");
+};
+
+
+
+
+
     </script>
 
 </body>
